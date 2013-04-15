@@ -1,3 +1,3 @@
 #RVAMAKES#
 
-Please fork repo and use pull requests.
+Install instructions go here.
