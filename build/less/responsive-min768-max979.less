@@ -1,0 +1,39 @@
+@media (min-width: 768px) and (max-width: 979px) {
+    header,
+    footer {
+        .inner {
+            width: @tabletInnerWidth;
+        }
+    }
+
+    header {
+        .inner {
+            .selector {
+
+                .prefix,
+                .current,
+                .fob {
+                    line-height: 90px;
+                    font-size: 60px;
+                }
+                .prefix {
+                    width: 140px;
+                }
+            }
+            .options {
+                left: 0;
+                width: @tabletInnerWidth;
+                div {
+                    width: 327px;
+                    line-height: 40px;
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+
+    #list {
+        width: @tabletInnerWidth;
+    }
+
+}

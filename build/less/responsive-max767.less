@@ -1,0 +1,54 @@
+@media (max-width: 767px) {
+    header,
+    footer {
+        .inner {
+            width: @mobleInnerWidth;
+        }
+    }
+
+    header {
+        height: 50px;
+        border-bottom: 1px solid #000;
+        .inner {
+            padding-top: 0px;
+            .selector {
+
+                .prefix,
+                .current,
+                .fob {
+                    line-height: 50px;
+                    font-size: 30px;
+                }
+                .prefix {
+                    width: 70px;
+                }
+                .fob {
+                    width: 50px;
+                    font-size: 21px;
+                    margin-right: 0px;
+                    background-color: darken(#fff, 7%);
+                }
+            }
+            .options {
+                top: 50px;
+                left: 0;
+                width: @mobleInnerWidth;
+                div {
+                    width: 46%;
+                    line-height: 40px;
+                    font-size: 24px;
+                    padding: 5px 2%;
+                }
+            }
+        }
+    }
+
+    #list {
+        padding-top: 20px;
+        width: 490px;
+        .item {
+        }
+    }
+
+}
+
