@@ -5,6 +5,7 @@ html,
 body {
     height: 100%;
     margin: 0px;
+    font-family: @baseFontFamily;
 }
 
 header,
@@ -28,7 +29,7 @@ header {
             .fob {
                 line-height: 84px;
                 font-size: 84px;
-                font-family: "Arial Black", Helvetica Neue, Helvetica, Arial;
+                font-family: @headerFontFamily;
                 font-weight: bold;
                 cursor: pointer;
             }
@@ -52,7 +53,7 @@ header {
                 &:hover {
                     background: #0FF;
                     color: #000;
-                    
+
                 }
                 margin-right: 10px;
             }
@@ -74,7 +75,6 @@ header {
                 float: left;
                 line-height: 45px;
                 font-size: 40px;
-                font-family: "Arial Black", Helvetica Neue, Helvetica, Arial;
                 font-weight: bold;
                 padding: 10px 20px;
                 color: #f1f1f1;
@@ -98,10 +98,11 @@ header {
     }
 }
 
-section{
-    display:none;
+section {
+    display: none;
     width: @innerWidth;
     margin: 0px auto;
+    padding-bottom: 40px;
 }
 
 #list {
@@ -125,15 +126,14 @@ section{
             left: 0;
         }
 
-        div.hover {
-            //display: none;
+        div.hover { //display: none;
             opacity: 0;
             .make-transition(@fadeOutTime);
             &:hover {
-	        	opacity: 1;
-			    .make-transition();
-		    }
-            
+                opacity: 1;
+                .make-transition();
+            }
+
             background-color: #000;
             background-color: rgba(0, 0, 0, 0.7);
         }
@@ -142,7 +142,6 @@ section{
             color: #fff;
             text-align: center;
             line-height: 200px;
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
             text-decoration: none;
             text-transform: capitalize;
         }
@@ -158,9 +157,57 @@ section{
 #about {
 
 }
+
 #entry {
 
+    form {
+
+        div {
+            clear:both;
+            padding: 10px 0;
+            max-width: 450px;
+
+            &.field {
+                height: 28px;
+
+                label {
+                    width: 100px;
+                    float: left;
+                    line-height: 28px;
+                }
+                input[type="text"] {
+                    width: 200px;
+                    float: left;
+                    border: 1px solid #eee;
+                    padding: 4px;
+                    font-size: 15px;
+                }
+            }
+            &.checkboxes{
+                label{
+                    width: 150px;
+                }
+            }
+            &.ctrls{
+                button{
+                    background-color: #000;
+                    color: #fff;
+                    display:block;
+                    text-align: center;
+                    width: 200px;
+                    border:none;
+                    padding: 12px 6px;
+                    font-size: 15px;
+                    font-weight: bold;
+
+                }
+            }
+        }
+
+    }
+
 }
+
 #show {
 
 }
@@ -168,27 +215,26 @@ section{
 footer {
     position: fixed;
     bottom: 0;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
     clear: both;
     background-color: #111;
     color: #f1f1f1;
 
-    .inner{
-        div{
+    .inner {
+        div {
             float: left;
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-size:15px;
+            font-size: 15px;
             line-height: 40px;
             margin-right: 40px;
 
-            a{
+            a {
                 color: #fff;
                 text-decoration: none;
                 text-transform: capitalize;
             }
 
-            &:first-of-type{
+            &:first-of-type {
                 margin-left: 10px;
             }
         }
@@ -212,7 +258,6 @@ footer {
                 .fob {
                     line-height: 90px;
                     font-size: 90px;
-                    font-family: "Arial Black", Helvetica Neue, Helvetica, Arial;
                     font-weight: bold;
                 }
 

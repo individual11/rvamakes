@@ -1,0 +1,19 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Fletch Padgett -- Lead -- @flatanimals
+    David Vogeleer -- Dev / CT -- @individual11
+    Jeff McDonald  -- CT, planter of seeds -- @welovejeff
+
+# THANKS
+
+    PRTLND.com - http://prtlnd.com
+    Chris Kalani - http://chriskalani.com/
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, JS
+    Backbone.js, Underscore.js, Mustache.js, Jquery
+    Node.js

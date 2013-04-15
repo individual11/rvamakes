@@ -2,6 +2,7 @@ html,
 body {
   height: 100%;
   margin: 0px;
+  font-family: Helvetica Neue, Helvetica, Arial;
 }
 header .inner,
 footer .inner {
@@ -60,7 +61,6 @@ header .inner .options div {
   float: left;
   line-height: 45px;
   font-size: 40px;
-  font-family: "Arial Black", Helvetica Neue, Helvetica, Arial;
   font-weight: bold;
   padding: 10px 20px;
   color: #f1f1f1;
@@ -81,6 +81,7 @@ section {
   display: none;
   width: 980px;
   margin: 0px auto;
+  padding-bottom: 40px;
 }
 #list .item {
   position: relative;
@@ -120,12 +121,45 @@ section {
   color: #fff;
   text-align: center;
   line-height: 200px;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
   text-decoration: none;
   text-transform: capitalize;
 }
 #list .item:hover .hover {
   display: block;
+}
+#entry form div {
+  clear: both;
+  padding: 10px 0;
+  max-width: 450px;
+}
+#entry form div.field {
+  height: 28px;
+}
+#entry form div.field label {
+  width: 100px;
+  float: left;
+  line-height: 28px;
+}
+#entry form div.field input[type="text"] {
+  width: 200px;
+  float: left;
+  border: 1px solid #eee;
+  padding: 4px;
+  font-size: 15px;
+}
+#entry form div.checkboxes label {
+  width: 150px;
+}
+#entry form div.ctrls button {
+  background-color: #000;
+  color: #fff;
+  display: block;
+  text-align: center;
+  width: 200px;
+  border: none;
+  padding: 12px 6px;
+  font-size: 15px;
+  font-weight: bold;
 }
 footer {
   position: fixed;
@@ -138,7 +172,6 @@ footer {
 }
 footer .inner div {
   float: left;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
   font-size: 15px;
   line-height: 40px;
   margin-right: 40px;
@@ -161,7 +194,6 @@ footer .inner div:first-of-type {
   header .inner .selector .fob {
     line-height: 90px;
     font-size: 90px;
-    font-family: "Arial Black", Helvetica Neue, Helvetica, Arial;
     font-weight: bold;
   }
   header .inner .selector .prefix {
