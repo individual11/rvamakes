@@ -22,12 +22,7 @@ var AppView = Backbone.View.extend({
         "creative:create": "creative:create",
         "creative:show": "creative:show",
         "creative:random": "creative:random",
-        "filter:change": "filter:change",
-        "route:about": "route:about",
-        "route:list": "route:list",
-        "route:entry": "route:entry",
-        "route:show": "route:show",
-        "route:random": "route:random"
+        "filter:change": "filter:change"
     },
     collections: {},
     views: {},
