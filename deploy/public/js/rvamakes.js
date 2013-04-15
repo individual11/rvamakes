@@ -203,12 +203,7 @@ var AppView = Backbone.View.extend({
         "creative:create": "creative:create",
         "creative:show": "creative:show",
         "creative:random": "creative:random",
-        "filter:change": "filter:change",
-        "route:about": "route:about",
-        "route:list": "route:list",
-        "route:entry": "route:entry",
-        "route:show": "route:show",
-        "route:random": "route:random"
+        "filter:change": "filter:change"
     },
     collections: {},
     views: {},
@@ -219,7 +214,7 @@ var AppView = Backbone.View.extend({
         var model = this.collections.creatives.findWhere({_id:data});
         this.views.show.renderCreative(model.toJSON());
     },
-    "creative:random": function (e) {
+    "creative:random": function () {
         this.router.navigate("#/show/"+this.collections.creatives.randomId(),true);
     },
     "filter:change": function (e, data) {
