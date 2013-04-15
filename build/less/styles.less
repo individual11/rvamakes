@@ -3,6 +3,9 @@
 @tabletInnerWidth: 735px;
 @mobleInnerWidth: 100%;
 
+@fadeInTime: 0.2s;
+@fadeOutTime: 0.3s;
+
 html,
 body {
     height: 100%;
@@ -56,7 +59,7 @@ header {
                 &:hover {
                     background: #0FF;
                     color: #000;
-
+                    
                 }
                 margin-right: 10px;
             }
@@ -126,7 +129,20 @@ header {
         }
 
         div.hover {
-            display: none;
+            //display: none;
+            opacity: 0;
+            -webkit-transition: all @fadeInTime ease-in-out;
+		    -moz-transition: all @fadeInTime ease-in-out;
+		    -o-transition: all @fadeInTime ease-in-out;
+		    transition: all @fadeInTime ease-in-out;
+            &:hover {
+	        	opacity: 1;
+			    -webkit-transition: all @fadeInTime ease-in-out;
+			    -moz-transition: all @fadeInTime ease-in-out;
+			    -o-transition: all @fadeInTime ease-in-out;
+			    transition: all @fadeInTime ease-in-out;
+		    }
+            
             background-color: #000;
             background-color: rgba(0, 0, 0, 0.7);
         }
