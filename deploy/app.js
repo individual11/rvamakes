@@ -1,14 +1,22 @@
-
 /**
  * Module dependencies.
  */
 
-var express = require('express'),
-    db = require('./db'),
-    routes = require('./routes'),
+var express = require('express');
+
+// set data connection
+if (process.env.NODE_ENV == "production"){
+    db = require('./db');
+}
+else {
+    db = require('./db-local');
+}
+
+var routes = require('./routes'),
     creative = require('./routes/creative'),
     http = require('http'),
-    path = require('path');
+    path = require('path'),
+    db;
 
 var app = express();
 
@@ -25,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+    app.use(express.errorHandler());
 }
 
 
@@ -40,7 +48,6 @@ app.delete('/api/creatives/reset', creative.reset);
 app.get('/', routes.index);
 
 
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
 });
