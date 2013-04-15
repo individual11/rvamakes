@@ -1,7 +1,5 @@
-@innerWidth: 980px;
-@largeInnerWidth: 1225px;
-@tabletInnerWidth: 735px;
-@mobleInnerWidth: 100%;
+@import "variables.less";
+@import "mixins.less";
 
 html,
 body {
@@ -54,7 +52,7 @@ header {
                 &:hover {
                     background: #0FF;
                     color: #000;
-
+                    
                 }
                 margin-right: 10px;
             }
@@ -128,7 +126,14 @@ section{
         }
 
         div.hover {
-            display: none;
+            //display: none;
+            opacity: 0;
+            .make-transition(@fadeOutTime);
+            &:hover {
+	        	opacity: 1;
+			    .make-transition();
+		    }
+            
             background-color: #000;
             background-color: rgba(0, 0, 0, 0.7);
         }
