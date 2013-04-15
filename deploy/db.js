@@ -12,4 +12,4 @@ var Creative = new Schema({
 
 mongoose.model('Creative', Creative);
 
-//mongoose.connect(process.env.CONNSTRING);
+mongoose.connect(process.env.CONNSTRING);
