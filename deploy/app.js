@@ -5,7 +5,7 @@
 var express = require('express');
 
 // set data connection
-if (process.env.NODE_ENV == "production"){
+if (process.env.NODE_ENV == 'production'){
     db = require('./db');
 }
 else {
