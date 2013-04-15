@@ -1,0 +1,73 @@
+<script type="text/html" id="tmplListItem">
+    <img src="{{img}}" alt="{{name}}"/>
+    <div class="hover">
+        <a href="{{url}}" target="_blank">{{name}}</a>
+    </div>
+</script>
+
+<script type="text/html" id="tmplShowItem">
+    <p>RVAMAKER</p>
+    <p><img src="{{img}}" alt="{{name}}"/></p>
+    <p>{{name}}</p>
+    <p><a href="{{url}}" target="_blank">{{url}}</a></p>
+    <p>{{#tags}}{{tags.join(",")}}{{/tags}}</p>
+</script>
+
+<script type="text/html" id="tmplEntry">
+    <p>ADD YOURSELF</p>
+    <div>
+        <form>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="text" name="email">
+            </div>
+            <div>
+                <label for="url">URL</label>
+                <input type="text" name="url">
+            </div>
+            <div>
+                <label for="img">Image</label>
+                <input type="file" name="img">
+            </div>
+            <div>
+                <label for="tags"><input type="check" name="tags"> Designer</label>
+                <label for="tags"><input type="check" name="tags"> Developer</label>
+                <label for="tags"><input type="check" name="tags"> Photographer</label>
+                <label for="tags"><input type="check" name="tags"> Illustrator</label>
+                <label for="tags"><input type="check" name="tags"> Musician</label>
+                <label for="tags"><input type="check" name="tags"> Writer</label>
+                <label for="tags"><input type="check" name="tags"> Filmmaker</label>
+                <label for="tags"><input type="check" name="tags"> Crafter</label>
+                <label for="tags"><input type="check" name="tags"> Cook</label>
+                <label for="tags"><input type="check" name="tags"> Mographer</label>
+                <label for="tags"><input type="check" name="tags"> Technologist</label>
+            </div>
+        </form>
+    </div>
+</script>
+
+<script type="text/html" id="tmplAbout">
+    <p>ABOUT</p>
+
+    <p>RVAMakes was built by you, RVA, in an attempt to collect all the creative powers in Richmond, Virginia.</p>
+
+    <p>This site was inspired by <a href="prtlnd.com">PRTLND</a>. Thanks to <a href="http://welovejeff.com/"">Jeff McDonald</a>, who planted the seed about borrowing the idea.</p>
+
+    <p>If you make stuff and you live in Richmond, you should <a href="#/entry">add yourself.</a></p>
+
+    <p><a href="http://twitter.com/rvamakes">@RVAMAKES</a></p>
+
+    <p>
+        <strong>Contributors</strong>
+    </p>
+
+    <ul>
+        <li><a href="http://twitter.com/flatanimals">Fletch Padgett</a></li>
+        <li><a href="http://twitter.com/welovejeff">Jeff McDonald</a></li>
+        <li><a href="http://twitter.com/individual11">David Vogeleer</a></li>
+    </ul>
+</script>

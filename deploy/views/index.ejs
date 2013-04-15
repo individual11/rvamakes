@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RVA Makes</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/css/styles.css"/>
+</head>
+<body>
+<%- include partials/header.ejs %>
+
+<section id="list" class="clearfix"></section>
+
+<section id="show"></section>
+
+<section id="entry"></section>
+
+<sectoin id="about"></sectoin>
+
+<%- include partials/footer.ejs %>
+
+<%- include index_templates.ejs %>
+
+<script src="/components/jquery/jquery.js"></script>
+<script src="/components/mustache/mustache.js"></script>
+<script src="/components/underscore/underscore.js"></script>
+<script src="/components/backbone/backbone.js"></script>
+<script src="/js/rvamakes.js"></script>
+</body>
+</html>

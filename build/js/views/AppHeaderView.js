@@ -1,0 +1,24 @@
+var AppHeaderView = Backbone.View.extend({
+    el: "header",
+    events:{
+        "click .fob":"togglePanel",
+        "click .options > div": "updateFilter"
+    },
+    initialize:function(){
+
+    },
+    render:function(){
+
+    },
+    togglePanel:function(){
+        this.$el.find('.options').toggle();
+    },
+    updateFilter:function(e){
+        var $target = $(e.target);
+        this.$el.find(".options .selected").removeClass("selected");
+        $target.addClass("selected");
+        this.$el.find(".current").html($target.html());
+        this.$el.find(".options").toggle();
+        this.$el.trigger("filter:change", $target.data("filter"));
+    }
+});

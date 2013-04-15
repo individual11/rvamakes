@@ -1,0 +1,361 @@
+@innerWidth: 980px;
+@largeInnerWidth: 1225px;
+@tabletInnerWidth: 735px;
+@mobleInnerWidth: 100%;
+
+html,
+body {
+    height: 100%;
+    margin: 0px;
+}
+
+header,
+footer {
+    .inner {
+        width: @innerWidth;
+        margin: 0px auto;
+    }
+}
+
+header {
+    height: 140px;
+
+    .inner {
+        position: relative;
+        padding-top: 25px;
+        .selector {
+
+            .prefix,
+            .current,
+            .fob {
+                line-height: 84px;
+                font-size: 84px;
+                font-family: "Arial Black", Helvetica Neue, Helvetica, Arial;
+                font-weight: bold;
+            }
+
+            .prefix {
+                width: 190px;
+                padding: 0 5px;
+                color: #777;
+                float: left;
+            }
+
+            .current {
+
+                cursor: pointer;
+                float: left;
+            }
+
+            .fob {
+                font-size: 60px;
+                width: 60px;
+                text-align: center;
+                cursor: pointer;
+                float: right;
+                &:hover {
+                    background: #0FF;
+                    color: #000;
+
+                }
+                margin-right: 10px;
+            }
+        }
+
+        .options {
+            z-index: 4000; // redonk!
+            position: absolute;
+            left: 220px;
+            top: 140px;
+            display: none;
+            width: @innerWidth - 230px;
+            background-color: #fff;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding-bottom: 10px;
+
+            div {
+                width: 335px;
+                float: left;
+                line-height: 45px;
+                font-size: 40px;
+                font-family: "Arial Black", Helvetica Neue, Helvetica, Arial;
+                font-weight: bold;
+                padding: 10px 20px;
+                color: #f1f1f1;
+                cursor: pointer;
+
+                &:hover {
+                    background: #0FF;
+                    color: #000;
+                }
+
+                &.selected {
+                    background: darken(#0FF, 10%);
+                    color: #000;
+                    &:hover {
+                        cursor: default;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+#list {
+    width: @innerWidth;
+    margin: 0px auto;
+
+    .item {
+        position: relative;
+        width: 225px;
+        height: 200px;
+        overflow: hidden;
+        float: left;
+        margin: 0px 10px 20px;
+
+        img,
+        div.hover,
+        div.hover a {
+            display: block;
+            width: 225px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        div.hover {
+            display: none;
+            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        div.hover a {
+            color: #fff;
+            text-align: center;
+            line-height: 200px;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+
+        &:hover {
+            .hover {
+                display: block;
+            }
+        }
+    }
+}
+
+#show {
+
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right:0;
+    clear: both;
+    background-color: #111;
+    color: #f1f1f1;
+
+    .inner{
+        div{
+            float: left;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size:15px;
+            line-height: 40px;
+            margin-right: 40px;
+
+            a{
+                color: #fff;
+                text-decoration: none;
+                text-transform: capitalize;
+            }
+
+            &:first-of-type{
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1225px) {
+    header,
+    footer {
+        .inner {
+            width: @largeInnerWidth;
+        }
+    }
+
+    header {
+        .inner {
+            .selector {
+
+                .prefix,
+                .current,
+                .fob {
+                    line-height: 90px;
+                    font-size: 90px;
+                    font-family: "Arial Black", Helvetica Neue, Helvetica, Arial;
+                    font-weight: bold;
+                }
+
+                .prefix {
+                    width: 210px;
+                    padding: 0 5px;
+                    color: #777;
+                    float: left;
+                }
+            }
+            .options {
+                width: @largeInnerWidth - 230px;
+                div {
+                    width: 457px;
+                    line-height: 45px;
+                    font-size: 45px;
+
+                }
+            }
+        }
+    }
+
+    #list {
+        width: @largeInnerWidth;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    header,
+    footer {
+        .inner {
+            width: @tabletInnerWidth;
+        }
+    }
+
+    header {
+        .inner {
+            .selector {
+
+                .prefix,
+                .current,
+                .fob {
+                    line-height: 90px;
+                    font-size: 60px;
+                }
+                .prefix {
+                    width: 140px;
+                }
+            }
+            .options {
+                left: 0;
+                width: @tabletInnerWidth;
+                div {
+                    width: 327px;
+                    line-height: 40px;
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+
+    #list {
+        width: @tabletInnerWidth;
+    }
+
+}
+
+@media (max-width: 767px) {
+    header,
+    footer {
+        .inner {
+            width: @mobleInnerWidth;
+        }
+    }
+
+    header {
+        height: 50px;
+        border-bottom: 1px solid #000;
+        .inner {
+            padding-top: 0px;
+            .selector {
+
+                .prefix,
+                .current,
+                .fob {
+                    line-height: 50px;
+                    font-size: 30px;
+                }
+                .prefix {
+                    width: 70px;
+                }
+                .fob {
+                    width: 50px;
+                    font-size: 21px;
+                    margin-right: 0px;
+                    background-color: darken(#fff, 7%);
+                }
+            }
+            .options {
+                top: 50px;
+                left: 0;
+                width: @mobleInnerWidth;
+                div {
+                    width: 46%;
+                    line-height: 40px;
+                    font-size: 24px;
+                    padding: 5px 2%;
+                }
+            }
+        }
+    }
+
+    #list {
+        padding-top: 20px;
+        width: 490px;
+        .item {
+        }
+    }
+
+}
+
+@media (max-width: 492px) {
+    header {
+        .inner {
+            .selector {
+
+                .prefix,
+                .current,
+                .fob {
+                    line-height: 50px;
+                    font-size: 24px;
+                }
+                .prefix {
+                    width: 52px;
+                }
+            }
+        }
+    }
+
+    #list {
+        padding-top: 20px;
+        width: 225px;
+        .item {
+            padding: 0;
+            margin: 0 0 20px;
+        }
+    }
+
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
