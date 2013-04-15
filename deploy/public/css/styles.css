@@ -81,6 +81,7 @@ section {
   display: none;
   width: 980px;
   margin: 0px auto;
+  padding-bottom: 40px;
 }
 #list .item {
   position: relative;
@@ -125,6 +126,40 @@ section {
 }
 #list .item:hover .hover {
   display: block;
+}
+#entry form div {
+  clear: both;
+  padding: 10px 0;
+  max-width: 450px;
+}
+#entry form div.field {
+  height: 28px;
+}
+#entry form div.field label {
+  width: 100px;
+  float: left;
+  line-height: 28px;
+}
+#entry form div.field input[type="text"] {
+  width: 200px;
+  float: left;
+  border: 1px solid #eee;
+  padding: 4px;
+  font-size: 15px;
+}
+#entry form div.checkboxes label {
+  width: 150px;
+}
+#entry form div.ctrls button {
+  background-color: #000;
+  color: #fff;
+  display: block;
+  text-align: center;
+  width: 200px;
+  border: none;
+  padding: 12px 6px;
+  font-size: 15px;
+  font-weight: bold;
 }
 footer {
   position: fixed;

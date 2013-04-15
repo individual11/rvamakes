@@ -1,0 +1,12 @@
+<script type="text/html" id="tmplListItem">
+    <img src="{{img}}" alt="{{name}}"/>
+
+    <div class="hover">
+        {{#url}}
+        <a href="{{url}}" target="_blank">{{name}}</a>
+        {{/url}}
+        {{^url}}
+        <a href="#/show/{{_id}}">{{name}}</a>
+        {{/url}}
+    </div>
+</script>
