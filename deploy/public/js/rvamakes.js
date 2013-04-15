@@ -13,7 +13,14 @@ var Creative = Backbone.Model.extend({
 
 var Creatives = Backbone.Collection.extend({
     model: Creative,
-    url: 'api/creatives'
+    url: 'api/creatives',
+    randomId: function(){
+        // get ubound of array
+        var ubound = this.models.length - 1;
+        // get random index
+        var randex = Math.floor(Math.random() * ubound);
+        return this.models[randex].get("_id");
+    }
 });
 
 /* **********************************************
@@ -139,11 +146,9 @@ var AboutView = Backbone.View.extend({
 
 var ShowView = Backbone.View.extend({
     el: "#show",
-    initialize:function(){
-
-    },
-    render:function(){
-
+    template: Mustache.compile($("#tmplShowItem").html()),
+    renderCreative:function(json){
+        this.$el.html(this.template(json));
     }
 });
 
@@ -197,6 +202,7 @@ var AppView = Backbone.View.extend({
     events: {
         "creative:create": "creative:create",
         "creative:show": "creative:show",
+        "creative:random": "creative:random",
         "filter:change": "filter:change",
         "route:about": "route:about",
         "route:list": "route:list",
@@ -210,7 +216,11 @@ var AppView = Backbone.View.extend({
 
     },
     "creative:show": function (e, data) {
-
+        var model = this.collections.creatives.findWhere({_id:data});
+        this.views.show.renderCreative(model.toJSON());
+    },
+    "creative:random": function (e) {
+        this.router.navigate("#/show/"+this.collections.creatives.randomId(),true);
     },
     "filter:change": function (e, data) {
         console.log(data);
@@ -257,14 +267,12 @@ var AppRouter = Backbone.Router.extend({
         $('#entry').show();
     },
     show: function (data) {
-        console.log('show',data);
+        $('body').trigger('creative:show', data);
         this.hideSections();
         $('#show').show();
     },
     random: function () {
-        console.log('random');
-        this.hideSections();
-        $('#show').show();
+        $('body').trigger('creative:random');
     },
     filter:function (tag){
         console.log('filter', tag);

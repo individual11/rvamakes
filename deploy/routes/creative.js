@@ -12,7 +12,8 @@ exports.index = function (req, res) {
 };
 
 exports.show = function (req, res) {
-    var id = req.params[0];
+    var id = req.params['id'];
+    console.log(id);
     Creative.findById(id, queryFields, function (err, creative) {
         res.json(creative);
     });
@@ -33,7 +34,7 @@ exports.create = function (req, res, next) {
 };
 
 exports.delete = function (req, res, next) {
-    var id = req.params[0];
+    var id = req.params[id];
     Creative.findByIdAndRemove(id, function (err) {
         if (err) res.status(500);
         res.status(200)

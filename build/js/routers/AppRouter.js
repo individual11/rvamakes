@@ -34,14 +34,12 @@ var AppRouter = Backbone.Router.extend({
         $('#entry').show();
     },
     show: function (data) {
-        console.log('show',data);
+        $('body').trigger('creative:show', data);
         this.hideSections();
         $('#show').show();
     },
     random: function () {
-        console.log('random');
-        this.hideSections();
-        $('#show').show();
+        $('body').trigger('creative:random');
     },
     filter:function (tag){
         console.log('filter', tag);
