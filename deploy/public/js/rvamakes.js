@@ -119,6 +119,21 @@ var ListItemView = Backbone.View.extend({
 });
 
 /* **********************************************
+     Begin AboutView.js
+********************************************** */
+
+var AboutView = Backbone.View.extend({
+    el: '#about',
+    template: Mustache.compile($('#tmplAbout').html()),
+    initialize: function(){
+        this.render();
+    },
+    render:function(){
+        this.$el.html(this.template());
+    }
+});
+
+/* **********************************************
      Begin ShowView.js
 ********************************************** */
 
@@ -129,6 +144,29 @@ var ShowView = Backbone.View.extend({
     },
     render:function(){
 
+    }
+});
+
+/* **********************************************
+     Begin EntryView.js
+********************************************** */
+
+var EntryView = Backbone.View.extend({
+    el: '#entry',
+    template: Mustache.compile($('#tmplEntry').html()),
+    events:{
+        "click .addCreative":"processEntry"
+    },
+    initialize: function(){
+        this.render();
+    },
+    render:function(){
+        this.$el.html(this.template());
+    },
+    processEntry:function(e){
+        e.preventDefault();
+        var $form = this.$el.find('form');
+        console.log($form.serializeArray());
     }
 });
 
@@ -176,6 +214,61 @@ var AppView = Backbone.View.extend({
     },
     "filter:change": function (e, data) {
         console.log(data);
+    }
+});
+
+/* **********************************************
+     Begin AppRouter.js
+********************************************** */
+
+var AppRouter = Backbone.Router.extend({
+    routes:{
+        "list":"list",
+        "about": "about",
+        "entry": "entry",
+        "show/:id": "show",
+        "random": "random",
+        "filter/:tag": "filter",
+        '*path':  'defaultRoute'
+    },
+    initialize: function(){
+
+    },
+    hideSections: function () {
+        $('section').hide();
+    },
+    defaultRoute:function(){
+        this.list();
+    },
+
+    list: function () {
+        console.log('list');
+        this.hideSections();
+        $('#list').show();
+    },
+    about: function () {
+        console.log('about');
+        this.hideSections();
+        $('#about').show();
+    },
+    entry: function () {
+        console.log('entry');
+        this.hideSections();
+        $('#entry').show();
+    },
+    show: function (data) {
+        console.log('show',data);
+        this.hideSections();
+        $('#show').show();
+    },
+    random: function () {
+        console.log('random');
+        this.hideSections();
+        $('#show').show();
+    },
+    filter:function (tag){
+        console.log('filter', tag);
+        $("list");
     }
 });
 

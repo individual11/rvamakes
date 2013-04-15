@@ -79,8 +79,6 @@ header .inner .options div.selected:hover {
 }
 section {
   display: none;
-}
-#list {
   width: 980px;
   margin: 0px auto;
 }
