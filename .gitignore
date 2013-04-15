@@ -1,4 +1,5 @@
 .idea/
 connstring.txt
 codekit-config.json
+.gitignore
 
