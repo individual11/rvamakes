@@ -1,7 +1,12 @@
 <script type="text/html" id="tmplListItem">
     <img src="{{img}}" alt="{{name}}"/>
     <div class="hover">
+        {{#url}}
         <a href="{{url}}" target="_blank">{{name}}</a>
+        {{/url}}
+        {{^url}}
+        <a href="#/show/{{_id}}" target="_blank">{{name}}</a>
+        {{/url}}
     </div>
 </script>
 
@@ -34,17 +39,17 @@
                 <input type="file" name="img">
             </div>
             <div>
-                <label for="tags"><input type="check" name="tags"> Designer</label>
-                <label for="tags"><input type="check" name="tags"> Developer</label>
-                <label for="tags"><input type="check" name="tags"> Photographer</label>
-                <label for="tags"><input type="check" name="tags"> Illustrator</label>
-                <label for="tags"><input type="check" name="tags"> Musician</label>
-                <label for="tags"><input type="check" name="tags"> Writer</label>
-                <label for="tags"><input type="check" name="tags"> Filmmaker</label>
-                <label for="tags"><input type="check" name="tags"> Crafter</label>
-                <label for="tags"><input type="check" name="tags"> Cook</label>
-                <label for="tags"><input type="check" name="tags"> Mographer</label>
-                <label for="tags"><input type="check" name="tags"> Technologist</label>
+                <label for="tags"><input type="checkbox" name="tags"> Designer</label>
+                <label for="tags"><input type="checkbox" name="tags"> Developer</label>
+                <label for="tags"><input type="checkbox" name="tags"> Photographer</label>
+                <label for="tags"><input type="checkbox" name="tags"> Illustrator</label>
+                <label for="tags"><input type="checkbox" name="tags"> Musician</label>
+                <label for="tags"><input type="checkbox" name="tags"> Writer</label>
+                <label for="tags"><input type="checkbox" name="tags"> Filmmaker</label>
+                <label for="tags"><input type="checkbox" name="tags"> Crafter</label>
+                <label for="tags"><input type="checkbox" name="tags"> Cook</label>
+                <label for="tags"><input type="checkbox" name="tags"> Mographer</label>
+                <label for="tags"><input type="checkbox" name="tags"> Technologist</label>
             </div>
         </form>
     </div>

@@ -10,7 +10,7 @@ var ListItemView = Backbone.View.extend({
         this.render();
     },
     render:function(){
-        console.log("list item render", this.model.toJSON());
+        //console.log("list item render", this.model.toJSON());
         var klasses = "item " + this.model.get("tags").join(" ");
         this.$el.addClass(klasses).html(this.template(this.model.toJSON()));
     },

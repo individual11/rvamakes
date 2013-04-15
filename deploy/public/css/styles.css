@@ -22,6 +22,7 @@ header .inner .selector .fob {
   font-size: 84px;
   font-family: "Arial Black", Helvetica Neue, Helvetica, Arial;
   font-weight: bold;
+  cursor: pointer;
 }
 header .inner .selector .prefix {
   width: 190px;
@@ -30,14 +31,12 @@ header .inner .selector .prefix {
   float: left;
 }
 header .inner .selector .current {
-  cursor: pointer;
   float: left;
 }
 header .inner .selector .fob {
   font-size: 60px;
   width: 60px;
   text-align: center;
-  cursor: pointer;
   float: right;
   margin-right: 10px;
 }
@@ -77,6 +76,9 @@ header .inner .options div.selected {
 }
 header .inner .options div.selected:hover {
   cursor: default;
+}
+section {
+  display: none;
 }
 #list {
   width: 980px;

@@ -1,6 +1,7 @@
 var Creative = Backbone.Model.extend({
     defaults:{
         name: "person name",
+        img: "",
         url: "",
         tags:[]
     }
@@ -21,26 +22,31 @@ var Creatives = Backbone.Collection.extend({
 
 var AppHeaderView = Backbone.View.extend({
     el: "header",
-    events:{
-        "click .fob":"togglePanel",
-        "click .options > div": "updateFilter"
+    events: {
+        "click .fob": "togglePanel",
+        "click .options > div": "updateFilter",
+        "click .prefix": "reset"
     },
-    initialize:function(){
+    initialize: function () {
 
     },
-    render:function(){
+    render: function () {
 
     },
-    togglePanel:function(){
+    togglePanel: function () {
         this.$el.find('.options').toggle();
     },
-    updateFilter:function(e){
+    updateFilter: function (e) {
         var $target = $(e.target);
         this.$el.find(".options .selected").removeClass("selected");
         $target.addClass("selected");
         this.$el.find(".current").html($target.html());
         this.$el.find(".options").toggle();
         this.$el.trigger("filter:change", $target.data("filter"));
+    },
+    reset: function () {
+        console.log('home');
+        window.location.hash = "";
     }
 });
 
@@ -96,7 +102,7 @@ var ListItemView = Backbone.View.extend({
         this.render();
     },
     render:function(){
-        console.log("list item render", this.model.toJSON());
+        //console.log("list item render", this.model.toJSON());
         var klasses = "item " + this.model.get("tags").join(" ");
         this.$el.addClass(klasses).html(this.template(this.model.toJSON()));
     },
@@ -109,6 +115,21 @@ var ListItemView = Backbone.View.extend({
     },
     mouseOut:function(){
         console.log("mouseOut");
+    }
+});
+
+/* **********************************************
+     Begin AboutView.js
+********************************************** */
+
+var AboutView = Backbone.View.extend({
+    el: '#about',
+    template: Mustache.compile($('#tmplAbout').html()),
+    initialize: function(){
+        this.render();
+    },
+    render:function(){
+        this.$el.html(this.template());
     }
 });
 
@@ -127,12 +148,27 @@ var ShowView = Backbone.View.extend({
 });
 
 /* **********************************************
+     Begin EntryView.js
+********************************************** */
+
+var EntryView = Backbone.View.extend({
+    el: '#entry',
+    template: Mustache.compile($('#tmplEntry').html()),
+    initialize: function(){
+        this.render();
+    },
+    render:function(){
+        this.$el.html(this.template());
+    }
+});
+
+/* **********************************************
      Begin AppView.js
 ********************************************** */
 
 var AppView = Backbone.View.extend({
     el: "body",
-    initialize:function(){
+    initialize: function () {
         this.collections.creatives = new Creatives();
         this.collections.creatives.fetch();
 
@@ -140,25 +176,91 @@ var AppView = Backbone.View.extend({
         this.views.footer = new AppFooterView({});
         this.views.list = new ListView({collection: this.collections.creatives});
         this.views.show = new ShowView({});
+        this.views.about = new AboutView({});
+        this.views.entry = new EntryView({});
+
+
+        this.router = new AppRouter();
+        Backbone.history.start();
     },
-    render:function(){
-z
+    render: function () {
+
     },
-    events:{
+    events: {
         "creative:create": "creative:create",
         "creative:show": "creative:show",
-        "filter:change": "filter:change"
+        "filter:change": "filter:change",
+        "route:about": "route:about",
+        "route:list": "route:list",
+        "route:entry": "route:entry",
+        "route:show": "route:show",
+        "route:random": "route:random"
     },
-    collections:{},
-    views:{},
-    "creative:create": function(e, data){
+    collections: {},
+    views: {},
+    "creative:create": function (e, data) {
 
     },
-    "creative:show": function(e, data){
+    "creative:show": function (e, data) {
 
     },
-    "filter:change": function(e,data){
+    "filter:change": function (e, data) {
         console.log(data);
+    }
+});
+
+/* **********************************************
+     Begin AppRouter.js
+********************************************** */
+
+var AppRouter = Backbone.Router.extend({
+    routes:{
+        "list":"list",
+        "about": "about",
+        "entry": "entry",
+        "show/:id": "show",
+        "random": "random",
+        "filter/:tag": "filter",
+        '*path':  'defaultRoute'
+    },
+    initialize: function(){
+
+    },
+    hideSections: function () {
+        $('section').hide();
+    },
+    defaultRoute:function(){
+        this.list();
+    },
+
+    list: function () {
+        console.log('list');
+        this.hideSections();
+        $('#list').show();
+    },
+    about: function () {
+        console.log('about');
+        this.hideSections();
+        $('#about').show();
+    },
+    entry: function () {
+        console.log('entry');
+        this.hideSections();
+        $('#entry').show();
+    },
+    show: function (data) {
+        console.log('show',data);
+        this.hideSections();
+        $('#show').show();
+    },
+    random: function () {
+        console.log('random');
+        this.hideSections();
+        $('#show').show();
+    },
+    filter:function (tag){
+        console.log('filter', tag);
+        $("list");
     }
 });
 
