@@ -8,6 +8,17 @@ body {
     font-family: @baseFontFamily;
 }
 
+a{
+	text-decoration: none;
+	color:@linkColor;
+	&:hover{
+		color:@linkHoverColor;
+	}
+	&:visited{
+		color:@linkVisitedColor;
+	}
+}
+
 header,
 footer {
     .inner {
@@ -267,6 +278,32 @@ footer {
             }
         }
     }
+}
+
+//ABOUT PAGE
+ul.contributors{
+	margin-top:-5px;
+	li {
+		list-style-type: none;
+		margin-left: -40px;
+		margin-bottom: 5px;
+		&.spade:before {
+			content: "\2660 \0020";
+			color:@linkColor;
+	    }
+	    &.club:before {
+			content: "\2663 \0020";
+			color:@linkColor;
+	    }
+	    &.heart:before {
+			content: "\2665 \0020";
+			color:@linkColor;
+	    }
+	    &.diamond:before {
+			content: "\2666 \0020";
+			color:@linkColor;
+	    }
+	}
 }
 
 // RVA icon font styles

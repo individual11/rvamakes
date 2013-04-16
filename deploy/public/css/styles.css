@@ -4,6 +4,16 @@ body {
   margin: 0px;
   font-family: Helvetica Neue, Helvetica, Arial;
 }
+a {
+  text-decoration: none;
+  color: #ee5731;
+}
+a:hover {
+  color: #f27d60;
+}
+a:visited {
+  color: #c23410;
+}
 header .inner,
 footer .inner {
   width: 980px;
@@ -202,6 +212,30 @@ footer .inner div a .rva-plus {
 }
 footer .inner div:first-of-type {
   margin-left: 10px;
+}
+ul.contributors {
+  margin-top: -5px;
+}
+ul.contributors li {
+  list-style-type: none;
+  margin-left: -40px;
+  margin-bottom: 5px;
+}
+ul.contributors li.spade:before {
+  content: "\2660 \0020";
+  color: #ee5731;
+}
+ul.contributors li.club:before {
+  content: "\2663 \0020";
+  color: #ee5731;
+}
+ul.contributors li.heart:before {
+  content: "\2665 \0020";
+  color: #ee5731;
+}
+ul.contributors li.diamond:before {
+  content: "\2666 \0020";
+  color: #ee5731;
 }
 @font-face {
   font-family: 'rva-icon';
