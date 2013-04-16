@@ -24,7 +24,7 @@ exports.create = function (req, res, next) {
     //console.log(req.files);
 
     var creative = req.body;
-    creative.img = "http://placehold.it/225x200&text=" + creative.name.replace(' ','+');
+    creative.img = "http://placehold.it/225x200&text=" + creative.name.replace(/ /g,'+');
     creative.create_at = Date.now();
 
     new Creative(creative).save(function (err, creative, count) {

@@ -168,7 +168,7 @@ var EntryView = Backbone.View.extend({
     template: Mustache.compile($('#tmplEntry').html()),
     events:{
         //"click .addCreative":"processEntry",
-        "load #upload":"parseResponse"
+        "form:reset":"resetForm"
     },
     initialize: function(){
         this.render();
@@ -176,6 +176,7 @@ var EntryView = Backbone.View.extend({
     render:function(){
         this.$el.html(this.template());
         //this.$el.on('')
+        $('#upload').on('load', this.parseResponse);
     },
     processEntry:function(e){
         e.preventDefault();
@@ -184,12 +185,25 @@ var EntryView = Backbone.View.extend({
     },
     parseResponse:function(e){
         var res = $('#upload').contents().text();
+        console.log('parseResponse', res, this);
         if (res){
-            res = parseJSON(res);
-            this.$el.trigger("creative:created",res);
+            try{
+                res = JSON.parse(res);
+            }
+            catch (e){
+                // nom nom nom
+            }
+
+            // TODO: add error checking
+
+            var creative = new Creative(res);
+
+            $(this).trigger("creative:created",creative);
+            $(this).trigger('form:reset');
         }
-
-
+    },
+    resetForm:function(){
+        this.$el.find('form')[0].reset();
     }
 });
 
@@ -218,17 +232,18 @@ var AppView = Backbone.View.extend({
 
     },
     events: {
-        "creative:create": "creative:create",
+        "creative:created": "creative:created",
         "creative:show": "creative:show",
         "creative:random": "creative:random",
         "filter:change": "filter:change"
     },
     collections: {},
     views: {},
-    "creative:create": function (e, model) {
+    "creative:created": function (e, model) {
         console.log('creative:create',model instanceof Creative,model);
         if(model instanceof Creative){
-            this.collections.add(model);
+            this.collections.creatives.add(model);
+            this.router.navigate("#/show/"+model.get("_id"),true);
         }
     },
     "creative:show": function (e, data) {
