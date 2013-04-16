@@ -20,17 +20,18 @@ exports.show = function (req, res) {
 };
 
 exports.create = function (req, res, next) {
-    new Creative({
-        name: req.body.name,
-        email: req.body.email,
-        img: req.body.img,
-        url: req.body.url,
-        tags: req.body.tags.split(','),
-        created_at: Date.now()
-    }).save(function (err, creative, count) {
-            if (err) return next(err);
-            res.json(creative);
-        });
+    console.log(req.body);
+    //console.log(req.files);
+
+    var creative = req.body;
+    creative.img = "http://placehold.it/225x200&text=" + creative.name.replace(' ','+');
+    creative.create_at = Date.now();
+
+    new Creative(creative).save(function (err, creative, count) {
+        if (err) return next(err);
+        res.json(creative);
+    });
+
 };
 
 exports.delete = function (req, res, next) {

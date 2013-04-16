@@ -26,8 +26,11 @@ var AppView = Backbone.View.extend({
     },
     collections: {},
     views: {},
-    "creative:create": function (e, data) {
-
+    "creative:create": function (e, model) {
+        console.log('creative:create',model instanceof Creative,model);
+        if(model instanceof Creative){
+            this.collections.add(model);
+        }
     },
     "creative:show": function (e, data) {
         var model = this.collections.creatives.findWhere({_id:data});
@@ -38,5 +41,6 @@ var AppView = Backbone.View.extend({
     },
     "filter:change": function (e, data) {
         console.log(data);
+
     }
 });

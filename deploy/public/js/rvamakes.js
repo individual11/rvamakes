@@ -160,18 +160,29 @@ var EntryView = Backbone.View.extend({
     el: '#entry',
     template: Mustache.compile($('#tmplEntry').html()),
     events:{
-        "click .addCreative":"processEntry"
+        //"click .addCreative":"processEntry",
+        "load #upload":"parseResponse"
     },
     initialize: function(){
         this.render();
     },
     render:function(){
         this.$el.html(this.template());
+        //this.$el.on('')
     },
     processEntry:function(e){
         e.preventDefault();
         var $form = this.$el.find('form');
         console.log($form.serializeArray());
+    },
+    parseResponse:function(e){
+        var res = $('#upload').contents().text();
+        if (res){
+            res = parseJSON(res);
+            this.$el.trigger("creative:created",res);
+        }
+
+
     }
 });
 
@@ -207,8 +218,11 @@ var AppView = Backbone.View.extend({
     },
     collections: {},
     views: {},
-    "creative:create": function (e, data) {
-
+    "creative:create": function (e, model) {
+        console.log('creative:create',model instanceof Creative,model);
+        if(model instanceof Creative){
+            this.collections.add(model);
+        }
     },
     "creative:show": function (e, data) {
         var model = this.collections.creatives.findWhere({_id:data});
@@ -219,6 +233,7 @@ var AppView = Backbone.View.extend({
     },
     "filter:change": function (e, data) {
         console.log(data);
+
     }
 });
 
