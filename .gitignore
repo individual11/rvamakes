@@ -1,3 +1,4 @@
 .idea/
 connstring.txt
 codekit-config.json
+.DS_Store
