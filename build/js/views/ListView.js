@@ -1,7 +1,6 @@
 var ListView = Backbone.View.extend({
     el: "#list",
     template: Mustache.compile($("#tmplListItem").html()),
-    touch: false,
     initialize:function(){
         var touch = Modernizr.touch,
             agent = navigator.userAgent || navigator.vendor || window.opera,
