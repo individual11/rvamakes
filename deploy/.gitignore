@@ -1,3 +1,4 @@
 node_modules/
 db-local.js
 package.json
+config/aws.json
