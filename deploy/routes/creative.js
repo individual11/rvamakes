@@ -29,7 +29,8 @@ exports.create = function (req, res, next) {
 
     new Creative(creative).save(function (err, creative, count) {
         if (err) return next(err);
-        res.json(creative);
+        res.set('Content-Type', 'text/plain');
+        res.send(creative);
     });
 
 };
