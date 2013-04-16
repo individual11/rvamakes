@@ -26,8 +26,7 @@ var AppView = Backbone.View.extend({
     },
     collections: {},
     views: {},
-    "creative:created": function (e, model) {
-        console.log('creative:create',model instanceof Creative,model);
+    "creative:created": function (e, model){
         if(model instanceof Creative){
             this.collections.creatives.add(model);
             this.router.navigate("#/show/"+model.get("_id"),true);
