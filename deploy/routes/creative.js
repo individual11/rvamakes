@@ -39,7 +39,7 @@ exports.create = function (req, res, next) {
 
     fs.readFile(img.path, function (err, data) {
         if (err) {
-            console.warn(err);
+            console.warn("file read", err);
         }
         else {
             s3.client.putObject({
@@ -51,11 +51,10 @@ exports.create = function (req, res, next) {
 
             }, function (err, data) {
                 if (err) {
-                    console.log("s3 fail", err);
+                    console.warn("s3 fail", err);
                     res.status(response.httpResponse.statusCode).end(JSON.stringify(({err: response})));
                 }
                 else {
-                    console.log("s3 done", data);
                     new Creative(creative).save(function (err, creative, count) {
                         if (err) return next(err);
                         res.set('Content-Type', 'text/plain');
