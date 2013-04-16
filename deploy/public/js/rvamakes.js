@@ -167,7 +167,6 @@ var EntryView = Backbone.View.extend({
     el: '#entry',
     template: Mustache.compile($('#tmplEntry').html()),
     events:{
-        //"click .addCreative":"processEntry",
         "form:reset":"resetForm"
     },
     initialize: function(){
@@ -175,7 +174,6 @@ var EntryView = Backbone.View.extend({
     },
     render:function(){
         this.$el.html(this.template());
-        //this.$el.on('')
         $('#upload').on('load', this.parseResponse);
     },
     processEntry:function(e){
@@ -185,7 +183,6 @@ var EntryView = Backbone.View.extend({
     },
     parseResponse:function(e){
         var res = $('#upload').contents().text();
-        console.log('parseResponse', res, this);
         if (res){
             try{
                 res = JSON.parse(res);
@@ -239,8 +236,7 @@ var AppView = Backbone.View.extend({
     },
     collections: {},
     views: {},
-    "creative:created": function (e, model) {
-        console.log('creative:create',model instanceof Creative,model);
+    "creative:created": function (e, model){
         if(model instanceof Creative){
             this.collections.creatives.add(model);
             this.router.navigate("#/show/"+model.get("_id"),true);

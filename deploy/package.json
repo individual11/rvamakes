@@ -1,7 +1,7 @@
 {
   "name": "rvamakes",
   "subdomain": "rvamakes",
-  "version": "0.0.1-22",
+  "version": "0.0.1-25",
   "private": true,
   "scripts": {
     "start": "node app.js"

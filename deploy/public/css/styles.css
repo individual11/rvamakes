@@ -188,9 +188,16 @@ footer .inner div {
   margin-right: 40px;
 }
 footer .inner div a {
-  color: #fff;
+  color: #777;
   text-decoration: none;
   text-transform: capitalize;
+  font-weight: bold;
+}
+footer .inner div a.cta {
+  color: #fff;
+}
+footer .inner div a .rva-plus {
+  font-size: 13px;
 }
 footer .inner div:first-of-type {
   margin-left: 10px;
