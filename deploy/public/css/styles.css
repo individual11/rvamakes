@@ -127,6 +127,17 @@ section {
 #list .item:hover .hover {
   display: block;
 }
+#list.touch .item div.hover {
+  opacity: 1.0;
+  top: 160px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#list.touch .item div.hover,
+#list.touch .item div.hover a {
+  height: 40px;
+  line-height: 40px;
+}
 #entry form div {
   clear: both;
   padding: 10px 0;
@@ -184,36 +195,6 @@ footer .inner div a {
 footer .inner div:first-of-type {
   margin-left: 10px;
 }
-@media (min-width: 1225px) {
-  header .inner,
-  footer .inner {
-    width: 1225px;
-  }
-  header .inner .selector .prefix,
-  header .inner .selector .current,
-  header .inner .selector .fob {
-    line-height: 90px;
-    font-size: 90px;
-    font-weight: bold;
-  }
-  header .inner .selector .prefix {
-    width: 210px;
-    padding: 0 5px;
-    color: #777;
-    float: left;
-  }
-  header .inner .options {
-    width: 995px;
-  }
-  header .inner .options div {
-    width: 457px;
-    line-height: 45px;
-    font-size: 45px;
-  }
-  #list {
-    width: 1225px;
-  }
-}
 @font-face {
   font-family: 'rva-icon';
   src: url('fonts/rva-icon.eot');
@@ -255,6 +236,36 @@ you can use the generic selector below, but it's slower:
 }
 .rva-RVAlogo_v1:before {
   content: "\72";
+}
+@media (min-width: 1225px) {
+  header .inner,
+  footer .inner {
+    width: 1225px;
+  }
+  header .inner .selector .prefix,
+  header .inner .selector .current,
+  header .inner .selector .fob {
+    line-height: 90px;
+    font-size: 90px;
+    font-weight: bold;
+  }
+  header .inner .selector .prefix {
+    width: 210px;
+    padding: 0 5px;
+    color: #777;
+    float: left;
+  }
+  header .inner .options {
+    width: 995px;
+  }
+  header .inner .options div {
+    width: 457px;
+    line-height: 45px;
+    font-size: 45px;
+  }
+  #list {
+    width: 1225px;
+  }
 }
 @media (min-width: 768px) and (max-width: 979px) {
   header .inner,
@@ -352,15 +363,4 @@ you can use the generic selector below, but it's slower:
 }
 .clearfix:after {
   clear: both;
-}
-html.touch #list .item div.hover {
-  opacity: 1.0;
-  top: 160px;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-html.touch #list .item div.hover,
-html.touch #list .item div.hover a {
-  height: 40px;
-  line-height: 40px;
 }

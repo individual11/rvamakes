@@ -136,19 +136,36 @@ section {
 
             background-color: #000;
             background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        div.hover a {
-            color: #fff;
-            text-align: center;
-            line-height: 200px;
-            text-decoration: none;
-            text-transform: capitalize;
+            a {
+                color: #fff;
+                text-align: center;
+                line-height: 200px;
+                text-decoration: none;
+                text-transform: capitalize;
+            }
         }
 
         &:hover {
             .hover {
                 display: block;
+            }
+        }
+    }
+
+
+    &.touch{
+        .item {
+            div.hover{
+                opacity: 1.0;
+                top: 160px;
+                background-color: #000;
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+
+            div.hover,
+            div.hover a {
+                height: 40px;
+                line-height: 40px;
             }
         }
     }
@@ -163,7 +180,7 @@ section {
     form {
 
         div {
-            clear:both;
+            clear: both;
             padding: 10px 0;
             max-width: 450px;
 
@@ -183,19 +200,19 @@ section {
                     font-size: 15px;
                 }
             }
-            &.checkboxes{
-                label{
+            &.checkboxes {
+                label {
                     width: 150px;
                 }
             }
-            &.ctrls{
-                button{
+            &.ctrls {
+                button {
                     background-color: #000;
                     color: #fff;
-                    display:block;
+                    display: block;
                     text-align: center;
                     width: 200px;
-                    border:none;
+                    border: none;
                     padding: 12px 6px;
                     font-size: 15px;
                     font-weight: bold;
@@ -241,50 +258,6 @@ footer {
     }
 }
 
-@media (min-width: 1225px) {
-    header,
-    footer {
-        .inner {
-            width: @largeInnerWidth;
-        }
-    }
-
-    header {
-        .inner {
-            .selector {
-
-                .prefix,
-                .current,
-                .fob {
-                    line-height: 90px;
-                    font-size: 90px;
-                    font-weight: bold;
-                }
-
-                .prefix {
-                    width: 210px;
-                    padding: 0 5px;
-                    color: #777;
-                    float: left;
-                }
-            }
-            .options {
-                width: @largeInnerWidth - 230px;
-                div {
-                    width: 457px;
-                    line-height: 45px;
-                    font-size: 45px;
-
-                }
-            }
-        }
-    }
-
-    #list {
-        width: @largeInnerWidth;
-    }
-}
-
 // RVA icon font styles
 
 @import 'rva-icon-font';
@@ -308,23 +281,3 @@ footer {
     clear: both;
 }
 
-
-//used for touch devices
-html.touch{
-	#list{
-		.item {
-			div.hover{
-		        opacity: 1.0;
-		        top: 160px;
-		        background-color: #000;
-		        background-color: rgba(0, 0, 0, 0.7);
-		    }
-		
-		    div.hover,
-		    div.hover a {
-		        height: 40px;
-		        line-height: 40px;
-		    }
-		}
-	}
-}

@@ -1,0 +1,44 @@
+
+@media (min-width: 1225px) {
+    header,
+    footer {
+        .inner {
+            width: @largeInnerWidth;
+        }
+    }
+
+    header {
+        .inner {
+            .selector {
+
+                .prefix,
+                .current,
+                .fob {
+                    line-height: 90px;
+                    font-size: 90px;
+                    font-weight: bold;
+                }
+
+                .prefix {
+                    width: 210px;
+                    padding: 0 5px;
+                    color: #777;
+                    float: left;
+                }
+            }
+            .options {
+                width: @largeInnerWidth - 230px;
+                div {
+                    width: 457px;
+                    line-height: 45px;
+                    font-size: 45px;
+
+                }
+            }
+        }
+    }
+
+    #list {
+        width: @largeInnerWidth;
+    }
+}
