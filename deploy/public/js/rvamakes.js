@@ -78,13 +78,15 @@ var AppFooterView = Backbone.View.extend({
 var ListView = Backbone.View.extend({
     el: "#list",
     template: Mustache.compile($("#tmplListItem").html()),
-    touch: false,
     initialize:function(){
+        // test touch - modernizr returns false positive on chrome
+        // add chrome test
         var touch = Modernizr.touch,
             agent = navigator.userAgent || navigator.vendor || window.opera,
             test = /chrome/i.test(agent.toLowerCase());
         if (touch && test) touch = false;
         if (touch) this.$el.addClass('touch');
+
         this.listenTo(this.collection, "add update remove refresh reset", this.render);
     },
     render:function(){
@@ -131,6 +133,33 @@ var ListItemView = Backbone.View.extend({
 });
 
 /* **********************************************
+     Begin AboutView.js
+********************************************** */
+
+var AboutView = Backbone.View.extend({
+    el: '#about',
+    template: Mustache.compile($('#tmplAbout').html()),
+    initialize: function(){
+        this.render();
+    },
+    render:function(){
+        this.$el.html(this.template());
+    }
+});
+
+/* **********************************************
+     Begin ShowView.js
+********************************************** */
+
+var ShowView = Backbone.View.extend({
+    el: "#show",
+    template: Mustache.compile($("#tmplShowItem").html()),
+    renderCreative:function(json){
+        this.$el.html(this.template(json));
+    }
+});
+
+/* **********************************************
      Begin EntryView.js
 ********************************************** */
 
@@ -138,15 +167,14 @@ var EntryView = Backbone.View.extend({
     el: '#entry',
     template: Mustache.compile($('#tmplEntry').html()),
     events:{
-        //"click .addCreative":"processEntry",
-        "load #upload":"parseResponse"
+        "form:reset":"resetForm"
     },
     initialize: function(){
         this.render();
     },
     render:function(){
         this.$el.html(this.template());
-        //this.$el.on('')
+        $('#upload').on('load', this.parseResponse);
     },
     processEntry:function(e){
         e.preventDefault();
@@ -156,10 +184,73 @@ var EntryView = Backbone.View.extend({
     parseResponse:function(e){
         var res = $('#upload').contents().text();
         if (res){
-            res = parseJSON(res);
-            this.$el.trigger("creative:created",res);
-        }
+            try{
+                res = JSON.parse(res);
+            }
+            catch (e){
+                // nom nom nom
+            }
 
+            // TODO: add error checking
+
+            var creative = new Creative(res);
+
+            $(this).trigger("creative:created",creative);
+            $(this).trigger('form:reset');
+        }
+    },
+    resetForm:function(){
+        this.$el.find('form')[0].reset();
+    }
+});
+
+/* **********************************************
+     Begin AppView.js
+********************************************** */
+
+var AppView = Backbone.View.extend({
+    el: "body",
+    initialize: function () {
+        this.collections.creatives = new Creatives();
+        this.collections.creatives.fetch();
+
+        this.views.header = new AppHeaderView({});
+        this.views.footer = new AppFooterView({});
+        this.views.list = new ListView({collection: this.collections.creatives});
+        this.views.show = new ShowView({});
+        this.views.about = new AboutView({});
+        this.views.entry = new EntryView({});
+
+
+        this.router = new AppRouter();
+        Backbone.history.start();
+    },
+    render: function () {
+
+    },
+    events: {
+        "creative:created": "creative:created",
+        "creative:show": "creative:show",
+        "creative:random": "creative:random",
+        "filter:change": "filter:change"
+    },
+    collections: {},
+    views: {},
+    "creative:created": function (e, model){
+        if(model instanceof Creative){
+            this.collections.creatives.add(model);
+            this.router.navigate("#/show/"+model.get("_id"),true);
+        }
+    },
+    "creative:show": function (e, data) {
+        var model = this.collections.creatives.findWhere({_id:data});
+        this.views.show.renderCreative(model.toJSON());
+    },
+    "creative:random": function () {
+        this.router.navigate("#/show/"+this.collections.creatives.randomId(),true);
+    },
+    "filter:change": function (e, data) {
+        console.log(data);
 
     }
 });
@@ -214,84 +305,6 @@ var AppRouter = Backbone.Router.extend({
     filter:function (tag){
         console.log('filter', tag);
         $("list");
-    }
-});
-
-/* **********************************************
-     Begin AboutView.js
-********************************************** */
-
-var AboutView = Backbone.View.extend({
-    el: '#about',
-    template: Mustache.compile($('#tmplAbout').html()),
-    initialize: function(){
-        this.render();
-    },
-    render:function(){
-        this.$el.html(this.template());
-    }
-});
-
-/* **********************************************
-     Begin ShowView.js
-********************************************** */
-
-var ShowView = Backbone.View.extend({
-    el: "#show",
-    template: Mustache.compile($("#tmplShowItem").html()),
-    renderCreative:function(json){
-        this.$el.html(this.template(json));
-    }
-});
-
-/* **********************************************
-     Begin AppView.js
-********************************************** */
-
-var AppView = Backbone.View.extend({
-    el: "body",
-    initialize: function () {
-        this.collections.creatives = new Creatives();
-        this.collections.creatives.fetch();
-
-        this.views.header = new AppHeaderView({});
-        this.views.footer = new AppFooterView({});
-        this.views.list = new ListView({collection: this.collections.creatives});
-        this.views.show = new ShowView({});
-        this.views.about = new AboutView({});
-        this.views.entry = new EntryView({});
-
-
-        this.router = new AppRouter();
-        Backbone.history.start();
-    },
-    render: function () {
-
-    },
-    events: {
-        "creative:create": "creative:create",
-        "creative:show": "creative:show",
-        "creative:random": "creative:random",
-        "filter:change": "filter:change"
-    },
-    collections: {},
-    views: {},
-    "creative:create": function (e, model) {
-        console.log('creative:create',model instanceof Creative,model);
-        if(model instanceof Creative){
-            this.collections.add(model);
-        }
-    },
-    "creative:show": function (e, data) {
-        var model = this.collections.creatives.findWhere({_id:data});
-        this.views.show.renderCreative(model.toJSON());
-    },
-    "creative:random": function () {
-        this.router.navigate("#/show/"+this.collections.creatives.randomId(),true);
-    },
-    "filter:change": function (e, data) {
-        console.log(data);
-
     }
 });
 
