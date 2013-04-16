@@ -22,6 +22,7 @@ var AppRouter = Backbone.Router.extend({
         console.log('list');
         this.hideSections();
         $('#list').show();
+
     },
     about: function () {
         console.log('about');
@@ -34,6 +35,7 @@ var AppRouter = Backbone.Router.extend({
         $('#entry').show();
     },
     show: function (data) {
+        console.log('creative:show',data);
         $('body').trigger('creative:show', data);
         this.hideSections();
         $('#show').show();

@@ -211,8 +211,14 @@ var EntryView = Backbone.View.extend({
 var AppView = Backbone.View.extend({
     el: "body",
     initialize: function () {
+        this.router = new AppRouter();
+
         this.collections.creatives = new Creatives();
-        this.collections.creatives.fetch();
+        this.collections.creatives.fetch({
+            success:function(){
+                Backbone.history.start();
+            }
+        });
 
         this.views.header = new AppHeaderView({});
         this.views.footer = new AppFooterView({});
@@ -221,9 +227,6 @@ var AppView = Backbone.View.extend({
         this.views.about = new AboutView({});
         this.views.entry = new EntryView({});
 
-
-        this.router = new AppRouter();
-        Backbone.history.start();
     },
     render: function () {
 
@@ -243,6 +246,7 @@ var AppView = Backbone.View.extend({
         }
     },
     "creative:show": function (e, data) {
+        console.log('creative:show',data);
         var model = this.collections.creatives.findWhere({_id:data});
         this.views.show.renderCreative(model.toJSON());
     },
@@ -283,6 +287,7 @@ var AppRouter = Backbone.Router.extend({
         console.log('list');
         this.hideSections();
         $('#list').show();
+
     },
     about: function () {
         console.log('about');
@@ -295,6 +300,7 @@ var AppRouter = Backbone.Router.extend({
         $('#entry').show();
     },
     show: function (data) {
+        console.log('creative:show',data);
         $('body').trigger('creative:show', data);
         this.hideSections();
         $('#show').show();
