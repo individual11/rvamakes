@@ -5,7 +5,7 @@
 var express = require('express');
 
 // set data connection
-if (process.env.NODE_ENV == 'production'){
+if (process.env.NODE_ENV == 'production') {
     db = require('./db');
 }
 else {
@@ -28,6 +28,18 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
+app.use(express.cookieParser());
+app.use(express.session({
+    secret: "this!secret!sucks!and!will^be^changed$for$production@bitches",
+    cookie: {httpOnly: true}
+}));
+app.use(express.csrf());
+
+app.use(function (req, res, next) {
+    res.locals.csrftoken = req.session._csrf;
+    next();
+});
+
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
