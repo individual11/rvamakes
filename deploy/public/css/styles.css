@@ -210,6 +210,10 @@ section {
   font-size: 15px;
   font-weight: bold;
 }
+#show img {
+  max-width: 225px;
+  max-height: 220px;
+}
 footer {
   position: fixed;
   bottom: 0;
