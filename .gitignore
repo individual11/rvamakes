@@ -38,6 +38,7 @@ npm-debug.log
 *.ipr
 *.iws
 .idea/
+<<<<<<< HEAD
 out/
 local.properties
 
@@ -104,3 +105,9 @@ CVS
 *.mode2v3
 *.perspectivev3
 xcuserdata/
+=======
+connstring.txt
+codekit-config.json
+.gitignore
+
+>>>>>>> 9f992a11587a1cc025a7f3a0a93669caf0aea3a8
