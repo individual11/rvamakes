@@ -13,16 +13,16 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/lib\/drivers\/node-mongodb-native\/collection-min.js",
       "fileType" : 64
     },
-    "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_refresh.png" : {
-      "ignoreWasSetByUser" : 0,
+    "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/lib\/mongodb\/utils.js" : {
+      "ignoreWasSetByUser" : 1,
       "ignore" : 1,
       "hidden" : 1,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_refresh.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_refresh.png",
-      "initialSize" : 858,
-      "fileType" : 8192
+      "inputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/lib\/mongodb\/utils.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/lib\/mongodb\/utils-min.js",
+      "fileType" : 64
     },
     "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_add.png" : {
       "ignoreWasSetByUser" : 0,
@@ -57,16 +57,16 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/test-min.js",
       "fileType" : 64
     },
-    "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/lib\/mongodb\/utils.js" : {
-      "ignoreWasSetByUser" : 1,
+    "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_refresh.png" : {
+      "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 1,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/lib\/mongodb\/utils.js",
-      "outputStyle" : 0,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/lib\/mongodb\/utils-min.js",
-      "fileType" : 64
+      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_refresh.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_refresh.png",
+      "initialSize" : 858,
+      "fileType" : 8192
     },
     "\/deploy\/node_modules\/express\/node_modules\/connect\/node_modules\/formidable\/test\/legacy\/system\/test-multi-video-upload.js" : {
       "ignoreWasSetByUser" : 1,
@@ -321,7 +321,7 @@
     },
     "\/build\/js\/views\/AboutView.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/build\/js\/views\/AboutView.js",
@@ -418,17 +418,6 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/lib\/schema\/date-min.js",
       "fileType" : 64
     },
-    "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/node_modules\/bson\/test\/node\/bson_typed_array_test.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 1,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/node_modules\/bson\/test\/node\/bson_typed_array_test.js",
-      "outputStyle" : 0,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/node_modules\/bson\/test\/node\/bson_typed_array_test-min.js",
-      "fileType" : 64
-    },
     "\/deploy\/node_modules\/express\/lib\/application.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
@@ -449,6 +438,17 @@
       "outputStyle" : 0,
       "syntaxCheckerStyle" : 0,
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/node_modules\/bson\/test\/node\/tools\/utils-min.js",
+      "fileType" : 64
+    },
+    "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/node_modules\/bson\/test\/node\/bson_typed_array_test.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 1,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/node_modules\/bson\/test\/node\/bson_typed_array_test.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/node_modules\/bson\/test\/node\/bson_typed_array_test-min.js",
       "fileType" : 64
     },
     "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/middleware\/cookieParser.js" : {
@@ -693,17 +693,6 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/hooks\/hooks.alt-min.js",
       "fileType" : 64
     },
-    "\/build\/js\/views\/ShowView.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/build\/js\/views\/ShowView.js",
-      "outputStyle" : 0,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/build\/js\/views\/ShowView-min.js",
-      "fileType" : 64
-    },
     "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/connect.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
@@ -724,6 +713,17 @@
       "outputStyle" : 0,
       "syntaxCheckerStyle" : 0,
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/middleware\/session-min.js",
+      "fileType" : 64
+    },
+    "\/build\/js\/views\/ShowView.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/build\/js\/views\/ShowView.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/build\/js\/views\/ShowView-min.js",
       "fileType" : 64
     },
     "\/deploy\/node_modules\/ejs\/test\/fixtures\/newlines.html" : {
@@ -836,7 +836,7 @@
     },
     "\/build\/js\/views\/EntryView.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/build\/js\/views\/EntryView.js",
@@ -1105,17 +1105,6 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/static-min.js",
       "fileType" : 64
     },
-    "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_white_key.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 1,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_white_key.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_white_key.png",
-      "initialSize" : 616,
-      "fileType" : 8192
-    },
     "\/deploy\/node_modules\/mongoose\/lib\/schematype.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
@@ -1125,6 +1114,17 @@
       "outputStyle" : 0,
       "syntaxCheckerStyle" : 0,
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/lib\/schematype-min.js",
+      "fileType" : 64
+    },
+    "\/deploy\/node_modules\/mongoose\/node_modules\/sliced\/bench.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 1,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/sliced\/bench.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/sliced\/bench-min.js",
       "fileType" : 64
     },
     "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/node_modules\/bson\/test\/node\/data\/test_gs_weird_bug.png" : {
@@ -1138,16 +1138,16 @@
       "initialSize" : 52184,
       "fileType" : 8192
     },
-    "\/deploy\/node_modules\/mongoose\/node_modules\/sliced\/bench.js" : {
-      "ignoreWasSetByUser" : 1,
+    "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_white_key.png" : {
+      "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 1,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/sliced\/bench.js",
-      "outputStyle" : 0,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/sliced\/bench-min.js",
-      "fileType" : 64
+      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_white_key.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_white_key.png",
+      "initialSize" : 616,
+      "fileType" : 8192
     },
     "\/deploy\/node_modules\/express\/node_modules\/debug\/lib\/debug.js" : {
       "ignoreWasSetByUser" : 1,
@@ -1554,6 +1554,15 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/utils-min.js",
       "fileType" : 64
     },
+    "\/deploy\/node_modules\/express\/node_modules\/debug\/example\/browser.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 1,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/debug\/example\/browser.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/lib\/mongodb\/connection\/base.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
@@ -1575,15 +1584,6 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_white_star.png",
       "initialSize" : 565,
       "fileType" : 8192
-    },
-    "\/deploy\/node_modules\/express\/node_modules\/debug\/example\/browser.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 1,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/debug\/example\/browser.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
     },
     "\/deploy\/node_modules\/express\/node_modules\/send\/index.js" : {
       "ignoreWasSetByUser" : 1,
@@ -1640,17 +1640,6 @@
       "outputAbbreviatedPath" : "\/build\/js\/collections\/Creatives-min.js",
       "fileType" : 64
     },
-    "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/patch.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 1,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/patch.js",
-      "outputStyle" : 0,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/patch-min.js",
-      "fileType" : 64
-    },
     "\/deploy\/node_modules\/mongoose\/lib\/errors\/divergentArray.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
@@ -1660,6 +1649,17 @@
       "outputStyle" : 0,
       "syntaxCheckerStyle" : 0,
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/lib\/errors\/divergentArray-min.js",
+      "fileType" : 64
+    },
+    "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/patch.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 1,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/patch.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/patch-min.js",
       "fileType" : 64
     },
     "\/deploy\/node_modules\/express\/node_modules\/connect\/node_modules\/formidable\/example\/post.js" : {
@@ -2078,17 +2078,6 @@
       "initialSize" : 635,
       "fileType" : 8192
     },
-    "\/deploy\/node_modules\/express\/node_modules\/methods\/index.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 1,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/methods\/index.js",
-      "outputStyle" : 0,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/methods\/index-min.js",
-      "fileType" : 64
-    },
     "\/build\/js\/views\/AppView.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -2098,6 +2087,17 @@
       "outputStyle" : 0,
       "syntaxCheckerStyle" : 0,
       "outputAbbreviatedPath" : "\/build\/js\/views\/AppView-min.js",
+      "fileType" : 64
+    },
+    "\/deploy\/node_modules\/express\/node_modules\/methods\/index.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 1,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/methods\/index.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/methods\/index-min.js",
       "fileType" : 64
     },
     "\/deploy\/node_modules\/ejs\/benchmark.js" : {
@@ -2492,15 +2492,15 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/node_modules\/formidable\/test\/legacy\/integration\/test-multipart-parser-min.js",
       "fileType" : 64
     },
-    "\/deploy\/db-local.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
+    "\/deploy\/node_modules\/mongoose\/lib\/errors\/document.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 1,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/db-local.js",
+      "inputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/lib\/errors\/document.js",
       "outputStyle" : 0,
       "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/deploy\/db-local-min.js",
+      "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/lib\/errors\/document-min.js",
       "fileType" : 64
     },
     "\/deploy\/node_modules\/mongoose\/lib\/utils.js" : {
@@ -2567,15 +2567,15 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/sliced\/index-min.js",
       "fileType" : 64
     },
-    "\/deploy\/node_modules\/mongoose\/lib\/errors\/document.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 1,
+    "\/deploy\/db-local.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/lib\/errors\/document.js",
+      "inputAbbreviatedPath" : "\/deploy\/db-local.js",
       "outputStyle" : 0,
       "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/lib\/errors\/document-min.js",
+      "outputAbbreviatedPath" : "\/deploy\/db-local-min.js",
       "fileType" : 64
     },
     "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/node_modules\/bson\/test\/browser\/suite3.js" : {
@@ -2732,7 +2732,7 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/deploy\/public\/css\/styles.css",
-      "outputAbbreviatedPath" : "No Output Path",
+      "outputAbbreviatedPath" : "\/No Output Path",
       "fileType" : 16
     },
     "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/install.js" : {
@@ -2898,6 +2898,17 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/muri\/test\/index-min.js",
       "fileType" : 64
     },
+    "\/deploy\/node_modules\/express\/node_modules\/mkdirp\/index.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 1,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/mkdirp\/index.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/mkdirp\/index-min.js",
+      "fileType" : 64
+    },
     "\/deploy\/node_modules\/express\/node_modules\/connect\/node_modules\/qs\/test\/browser\/qs.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -2917,17 +2928,6 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/connect\/lib\/public\/icons\/page_white_ruby.png",
       "initialSize" : 626,
       "fileType" : 8192
-    },
-    "\/deploy\/node_modules\/express\/node_modules\/mkdirp\/index.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 1,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/mkdirp\/index.js",
-      "outputStyle" : 0,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/node_modules\/mkdirp\/index-min.js",
-      "fileType" : 64
     },
     "\/deploy\/node_modules\/express\/node_modules\/connect\/node_modules\/qs\/querystring.js" : {
       "ignoreWasSetByUser" : 1,
@@ -3466,17 +3466,6 @@
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/index-min.js",
       "fileType" : 64
     },
-    "\/deploy\/node_modules\/express\/lib\/request.js" : {
-      "ignoreWasSetByUser" : 1,
-      "ignore" : 1,
-      "hidden" : 1,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/lib\/request.js",
-      "outputStyle" : 0,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/lib\/request-min.js",
-      "fileType" : 64
-    },
     "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/node_modules\/bson\/lib\/bson\/db_ref.js" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
@@ -3486,6 +3475,17 @@
       "outputStyle" : 0,
       "syntaxCheckerStyle" : 0,
       "outputAbbreviatedPath" : "\/deploy\/node_modules\/mongoose\/node_modules\/mongodb\/node_modules\/bson\/lib\/bson\/db_ref-min.js",
+      "fileType" : 64
+    },
+    "\/deploy\/node_modules\/express\/lib\/request.js" : {
+      "ignoreWasSetByUser" : 1,
+      "ignore" : 1,
+      "hidden" : 1,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/deploy\/node_modules\/express\/lib\/request.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/deploy\/node_modules\/express\/lib\/request-min.js",
       "fileType" : 64
     },
     "\/deploy\/node_modules\/express\/node_modules\/mkdirp\/test\/perm_sync.js" : {
@@ -4322,7 +4322,7 @@
     },
     "\/build\/js\/routers\/AppRouter.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/build\/js\/routers\/AppRouter.js",
@@ -4712,35 +4712,14 @@
     {
       "type" : 0,
       "position" : 6,
-      "linkedFileAbbreviatedPath" : "\/build\/js\/views\/AboutView.js",
-      "baseFileAbbreviatedPath" : "\/build\/js\/app.js",
-      "followForSyntaxChecking" : 1
-    },
-    {
-      "type" : 0,
-      "position" : 7,
       "linkedFileAbbreviatedPath" : "\/build\/js\/views\/ShowView.js",
       "baseFileAbbreviatedPath" : "\/build\/js\/app.js",
       "followForSyntaxChecking" : 1
     },
     {
       "type" : 0,
-      "position" : 8,
-      "linkedFileAbbreviatedPath" : "\/build\/js\/views\/EntryView.js",
-      "baseFileAbbreviatedPath" : "\/build\/js\/app.js",
-      "followForSyntaxChecking" : 1
-    },
-    {
-      "type" : 0,
-      "position" : 9,
+      "position" : 7,
       "linkedFileAbbreviatedPath" : "\/build\/js\/views\/AppView.js",
-      "baseFileAbbreviatedPath" : "\/build\/js\/app.js",
-      "followForSyntaxChecking" : 1
-    },
-    {
-      "type" : 0,
-      "position" : 10,
-      "linkedFileAbbreviatedPath" : "\/build\/js\/routers\/AppRouter.js",
       "baseFileAbbreviatedPath" : "\/build\/js\/app.js",
       "followForSyntaxChecking" : 1
     }
@@ -4923,7 +4902,7 @@
   },
   "projectAttributes" : {
     "bourbonEnabled" : 0,
-    "displayValue" : "rvamakes",
+    "displayValue" : "rvamake",
     "displayValueWasSetByUser" : 0,
     "compassEnabled" : 0
   }
