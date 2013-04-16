@@ -311,3 +311,14 @@ footer .inner div:first-of-type {
 .clearfix:after {
   clear: both;
 }
+html.touch #list .item div.hover {
+  opacity: 1.0;
+  top: 160px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+html.touch #list .item div.hover,
+html.touch #list .item div.hover a {
+  height: 40px;
+  line-height: 40px;
+}
