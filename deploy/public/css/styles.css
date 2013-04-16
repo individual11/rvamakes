@@ -26,13 +26,14 @@ header .inner .selector .fob {
   cursor: pointer;
 }
 header .inner .selector .prefix {
-  width: 190px;
   padding: 0 5px;
   color: #777;
   float: left;
 }
 header .inner .selector .current {
   float: left;
+  margin-top: -2px;
+  font-size: 98px !important;
 }
 header .inner .selector .fob {
   font-size: 60px;
@@ -285,10 +286,13 @@ you can use the generic selector below, but it's slower:
     font-weight: bold;
   }
   header .inner .selector .prefix {
-    width: 210px;
     padding: 0 5px;
     color: #777;
     float: left;
+  }
+  header .inner .selector .current {
+    margin-top: -2px;
+    font-size: 105px !important;
   }
   header .inner .options {
     width: 995px;
@@ -313,8 +317,9 @@ you can use the generic selector below, but it's slower:
     line-height: 90px;
     font-size: 60px;
   }
-  header .inner .selector .prefix {
-    width: 140px;
+  header .inner .selector .current {
+    margin: -4px;
+    font-size: 70px !important;
   }
   header .inner .options {
     left: 0;
@@ -347,8 +352,9 @@ you can use the generic selector below, but it's slower:
     line-height: 50px;
     font-size: 30px;
   }
-  header .inner .selector .prefix {
-    width: 70px;
+  header .inner .selector .current {
+    margin: -2px;
+    font-size: 35px !important;
   }
   header .inner .selector .fob {
     width: 50px;
@@ -379,8 +385,9 @@ you can use the generic selector below, but it's slower:
     line-height: 50px;
     font-size: 24px;
   }
-  header .inner .selector .prefix {
-    width: 52px;
+  header .inner .selector .current {
+    margin: -1px;
+    font-size: 28px !important;
   }
   #list {
     padding-top: 20px;
