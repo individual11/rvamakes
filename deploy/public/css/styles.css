@@ -491,7 +491,7 @@ you can use the generic selector below, but it's slower:
   }
   header .inner .selector .current {
     font-size: 64px;
-    margin: -4px;
+    margin-top: -4px;
   }
   header .inner .options {
     left: 0;
@@ -530,8 +530,8 @@ you can use the generic selector below, but it's slower:
     font-size: 24px;
   }
   header .inner .selector .current {
-    font-size: 35px;
-    margin: -2px;
+    font-size: 34px;
+    margin-left: 2px;
   }
   header .inner .selector .fob {
     width: 50px;
@@ -592,6 +592,10 @@ you can use the generic selector below, but it's slower:
   #list .item {
     padding: 0;
     margin: 0 0 20px;
+  }
+  footer {
+    position: static;
+    height: 41px;
   }
   footer .inner div {
     margin-right: 28px;
