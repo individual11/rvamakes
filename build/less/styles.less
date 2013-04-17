@@ -42,14 +42,15 @@ header {
             .prefix,
             .current,
             .fob {
-                line-height: 90px;
+                line-height: 84px;
+                font-size: 84px;
                 font-family: @headerFontFamily;
                 font-weight: bold;
                 cursor: pointer;
             }
 
             .prefix {
-                font-size: 84px;
+                //width: 190px;
                 padding: 0 5px;
                 float: left;
                 line-height: 79px;
@@ -105,12 +106,12 @@ header {
                 cursor: pointer;
 
                 &:hover {
-                    background: #0FF;
+                    background: @turquoise;
                     color: #000;
                 }
 
                 &.selected {
-                    background: darken(#0FF, 10%);
+                    background: @purple;
                     color: #000;
                     &:hover {
                         cursor: default;
@@ -301,10 +302,26 @@ footer {
                 color: #777;
                 text-decoration: none;
                 text-transform: capitalize;
-                font-weight: bold;
+                font-weight:bold;
+                .make-transition(@fadeOutTime);
+                
+                &:hover{
+	                color: lighten(#777, 25%);
+	                .make-transition();
+                }
 
-                &.cta {
-                    color: #fff;
+                &.cta{
+                    color:#fff;
+                    padding:11px 5px 12px 5px;
+                    background: inherit;
+                    .make-transition(@fadeOutTime);
+                     
+                    &:hover{
+	                    color:#000;
+	                    background: #fff;
+	                    .make-transition();
+                    }
+                    
                 }
 
                 .rva-plus {
