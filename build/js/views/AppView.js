@@ -44,17 +44,14 @@ var AppView = Backbone.View.extend({
         this.router.navigate("#/show/" + this.collections.creatives.randomId(), true);
     },
     "filter:change": function (e, data) {
-        console.log(data);
-        this.views.list.$el.hide();
+        console.log('filter:change',data);
         if (data == "") {
             this.router.navigate("#/", false);
             this.views.list.clearFilter();
-            //this.views.header.setSelected(data);
+            this.views.header.setSelected(data);
         } else {
-            this.router.navigate("#/filter/" + data, false);
             this.views.list.filterByTag(data);
             this.views.header.setSelected(data);
         }
-        this.views.list.$el.show();
     }
 });

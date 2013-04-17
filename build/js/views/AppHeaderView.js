@@ -16,9 +16,8 @@ var AppHeaderView = Backbone.View.extend({
     },
     updateFilter: function (e) {
         var $target = $(e.target);
-        //this.setSelected($target.data("filter"));
         this.$el.find(".options").fadeToggle(100);
-        this.$el.trigger("filter:change", $target.data("filter"));
+        window.location.hash = "#/filter/" + $target.data("filter");
     },
     setSelected:function(filter){
         this.$el.find(".options .selected").removeClass("selected");

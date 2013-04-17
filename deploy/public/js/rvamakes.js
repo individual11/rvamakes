@@ -54,9 +54,8 @@ var AppHeaderView = Backbone.View.extend({
     },
     updateFilter: function (e) {
         var $target = $(e.target);
-        //this.setSelected($target.data("filter"));
         this.$el.find(".options").fadeToggle(100);
-        this.$el.trigger("filter:change", $target.data("filter"));
+        window.location.hash = "#/filter/" + $target.data("filter");
     },
     setSelected:function(filter){
         this.$el.find(".options .selected").removeClass("selected");
@@ -328,18 +327,15 @@ var AppView = Backbone.View.extend({
         this.router.navigate("#/show/" + this.collections.creatives.randomId(), true);
     },
     "filter:change": function (e, data) {
-        console.log(data);
-        this.views.list.$el.hide();
+        console.log('filter:change',data);
         if (data == "") {
             this.router.navigate("#/", false);
             this.views.list.clearFilter();
-            //this.views.header.setSelected(data);
+            this.views.header.setSelected(data);
         } else {
-            this.router.navigate("#/filter/" + data, false);
             this.views.list.filterByTag(data);
             this.views.header.setSelected(data);
         }
-        this.views.list.$el.show();
     }
 });
 
@@ -354,7 +350,7 @@ var AppRouter = Backbone.Router.extend({
         "entry": "entry",
         "show/:id": "show",
         "random": "random",
-        "filter/:tag": "filter",
+        "filter/(:tag)": "filter",
         '*path':  'defaultRoute'
     },
     hideSections: function () {
@@ -387,7 +383,10 @@ var AppRouter = Backbone.Router.extend({
         $('body').trigger('creative:random');
     },
     filter:function (tag){
+        if(!tag) tag = "";
+        this.hideSections();
         $('body').trigger('filter:change',tag);
+        $('#list').show();
     }
 });
 

@@ -5,7 +5,7 @@ var AppRouter = Backbone.Router.extend({
         "entry": "entry",
         "show/:id": "show",
         "random": "random",
-        "filter/:tag": "filter",
+        "filter/(:tag)": "filter",
         '*path':  'defaultRoute'
     },
     hideSections: function () {
@@ -38,6 +38,9 @@ var AppRouter = Backbone.Router.extend({
         $('body').trigger('creative:random');
     },
     filter:function (tag){
+        if(!tag) tag = "";
+        this.hideSections();
         $('body').trigger('filter:change',tag);
+        $('#list').show();
     }
 });
