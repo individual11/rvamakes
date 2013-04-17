@@ -27,7 +27,6 @@ exports.show = function (req, res) {
 };
 
 exports.create = function (req, res, next) {
-    console.log(req.body);
     var img = req.files.img;
     var filePathSegs = img.path.split('/');
     var fileNameSegs = img.name.split('.');
@@ -63,9 +62,18 @@ exports.create = function (req, res, next) {
                         if (err) return next(err);
                         
                         //tweet about it
-                        //TODO: need to figure out the exact tweet or a combination to make it feel more natural
-                        var tweet = "We just added a new creative - " + creative.name;
-                        postToTwitter(tweet);
+                        var twitterStarters = ["Added ", "Just added ", "New "];
+                        var tweet = twitterStarters[Math.floor(Math.random() * twitterStarters.length)];//pick random beginning to feel more natural
+                        
+                        tweet += creative.tags.join("/");
+                        tweet += " " + creative.name;
+                        tweet += " http://rvamakes.jit.su/#/show/" + String(creative._id);
+                        
+                        //send tweet if in appropriate env
+                        if (process.env.NODE_ENV == 'production') postToTwitter(tweet);
+                        
+                        console.log(tweet + ":: WAS " + ((process.env.NODE_ENV == 'production')? "SENT":"NOT SENT (re: not in production)"));
+                        
                         res.set('Content-Type', 'text/plain');
                         res.send(creative);
                     });
@@ -76,7 +84,7 @@ exports.create = function (req, res, next) {
 };
 
 exports.delete = function (req, res, next) {
-    var id = req.params["id"];
+    var id = req.params['id'];
     Creative.findByIdAndRemove(id, function (err) {
         if (err) res.status(500);
         res.status(200)

@@ -2,23 +2,21 @@
  * Module dependencies.
  */
 
-var express = require('express');
-
-// set data connection
-if (process.env.NODE_ENV == 'production') {
-    db = require('./db');
-}
-else {
-    db = require('./db-local');
-}
-
-var routes = require('./routes'),
-    creative = require('./routes/creative'),
+var express = require('express'),
+	routes = require('./routes'),
     http = require('http'),
     path = require('path'),
     db;
 
-var app = express();
+// set data connection
+if (process.env.NODE_ENV == 'production') {
+    db = require('./db');
+}else {
+    db = require('./db-local');
+}
+
+var app = express(),
+	creative = require('./routes/creative');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
