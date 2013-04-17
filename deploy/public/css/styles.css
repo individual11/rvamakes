@@ -593,6 +593,10 @@ you can use the generic selector below, but it's slower:
     padding: 0;
     margin: 0 0 20px;
   }
+  footer {
+    position: static;
+    height: 41px;
+  }
   footer .inner div {
     margin-right: 28px;
   }
