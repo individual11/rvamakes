@@ -211,11 +211,8 @@ var EntryView = Backbone.View.extend({
         if (data.name.length == 0) {
             errors.push({field: 'name', msg: 'Name is a required field'})
         }
-        if (data.email.length == 0) {
-            errors.push({field: 'email', msg: 'Email is a required field'})
-        }
         if (!validEmail.test(data.email)) {
-            errors.push({field: 'email', msg: 'A valid email is a required field'})
+            errors.push({field: 'email', msg: 'A valid email is a required'})
         }
         if (data.url.length > 0) {
             if (!validUrl.test(data.url)) {
