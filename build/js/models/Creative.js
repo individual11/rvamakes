@@ -1,8 +1,17 @@
 var Creative = Backbone.Model.extend({
-    defaults:{
+    defaults: {
         name: "person name",
         img: "",
         url: "",
-        tags:[]
+        tags: []
+    },
+    validation: {
+        name: {
+            required: true
+        },
+        email:{
+            required: true,
+            pattern: 'email'
+        }
     }
 });

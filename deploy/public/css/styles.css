@@ -196,6 +196,12 @@ section {
   content: "\2666 \0020";
   color: #ee5731;
 }
+#entry > p {
+  margin-left: 10px;
+}
+#entry form {
+  margin-left: 10px;
+}
 #entry form div {
   clear: both;
   padding: 10px 0;
@@ -209,7 +215,9 @@ section {
   float: left;
   line-height: 28px;
 }
-#entry form div.field input[type="text"] {
+#entry form div.field input[type="text"],
+#entry form div.field input[type="email"],
+#entry form div.field input[type="url"] {
   width: 200px;
   float: left;
   border: 1px solid #eee;

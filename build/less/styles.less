@@ -23,6 +23,8 @@ a {
     }
 }
 
+
+
 header,
 footer {
     .inner {
@@ -229,7 +231,12 @@ section {
 
 #entry {
 
+    > p {
+        margin-left: 10px;
+    }
+
     form {
+        margin-left: 10px;
 
         div {
             clear: both;
@@ -244,13 +251,16 @@ section {
                     float: left;
                     line-height: 28px;
                 }
-                input[type="text"] {
+                input[type="text"],
+                input[type="email"],
+                input[type="url"], {
                     width: 200px;
                     float: left;
                     border: 1px solid #eee;
                     padding: 4px;
                     font-size: 15px;
                 }
+
             }
             &.checkboxes {
                 label {
