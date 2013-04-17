@@ -76,8 +76,10 @@ header {
                 span {
                     font-size: 45px;
                     color: #efefef;
+                     .make-transition(@fadeOutTime);
                     &:hover {
                         color: @turquoise;
+                         .make-transition();
                     }
                 }
                 margin-right: 10px;
