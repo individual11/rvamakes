@@ -118,6 +118,7 @@ var ListItemView = Backbone.View.extend({
     template: Mustache.compile($("#tmplListItem").html()),
     events:{
         "click": "click",
+        "tap": "click",
         "mouseOver": "mouseOver",
         "mouseOut": "mouseOut"
     },
@@ -130,8 +131,8 @@ var ListItemView = Backbone.View.extend({
         this.$el.addClass(klasses).html(this.template(this.model.toJSON()));
     },
     click:function(e){
-        console.log("click", e);
-        //this.$el.trigger('creative:show',)
+        var path = this.$el.find('a').attr('href');
+        window.location.hash = path;
     },
     mouseOver:function(){
         console.log("mouseOver");
