@@ -20,5 +20,11 @@ var ListView = Backbone.View.extend({
             item = new ListItemView({model:model});
             self.$el.append(item.el);
         });
-    } 
+    },
+    filterByTag:function(tag){
+        this.$el.attr('class','clearfix '+tag.toLowerCase());
+    },
+    clearFilter:function(){
+        this.$el.attr('class','clearfix');
+    }
 });

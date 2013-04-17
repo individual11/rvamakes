@@ -169,6 +169,52 @@ section {
   height: 40px;
   line-height: 40px;
 }
+#list.designer .item,
+#list.developer .item,
+#list.photographer .item,
+#list.illustrator .item,
+#list.musician .item,
+#list.writer .item,
+#list.filmmaker .item,
+#list.crafter .item,
+#list.cook .item,
+#list.mographer .item,
+#list.technologist .item {
+  display: none;
+}
+#list.designer .designer {
+  display: block;
+}
+#list.developer .developer {
+  display: block;
+}
+#list.photographer .photographer {
+  display: block;
+}
+#list.illustrator .illustrator {
+  display: block;
+}
+#list.musician .musician {
+  display: block;
+}
+#list.writer .writer {
+  display: block;
+}
+#list.filmmaker .filmmaker {
+  display: block;
+}
+#list.crafter .crafter {
+  display: block;
+}
+#list.cook .cook {
+  display: block;
+}
+#list.mographer .mographer {
+  display: block;
+}
+#list.technologist .technologist {
+  display: block;
+}
 #about {
   padding-left: 30px;
 }

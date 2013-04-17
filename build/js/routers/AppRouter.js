@@ -38,6 +38,6 @@ var AppRouter = Backbone.Router.extend({
         $('body').trigger('creative:random');
     },
     filter:function (tag){
-        $('body').trigger('filter:change',data);
+        $('body').trigger('filter:change',tag);
     }
 });

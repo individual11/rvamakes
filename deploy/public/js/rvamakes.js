@@ -54,14 +54,16 @@ var AppHeaderView = Backbone.View.extend({
     },
     updateFilter: function (e) {
         var $target = $(e.target);
-        this.$el.find(".options .selected").removeClass("selected");
-        $target.addClass("selected");
-        this.$el.find(".current").html($target.html());
+        //this.setSelected($target.data("filter"));
         this.$el.find(".options").fadeToggle(100);
         this.$el.trigger("filter:change", $target.data("filter"));
     },
+    setSelected:function(filter){
+        this.$el.find(".options .selected").removeClass("selected");
+        var title = this.$el.find(".options [data-filter="+filter+"]").addClass("selected").html();
+        this.$el.find(".current").html(title);
+    },
     reset: function () {
-        console.log('home');
         window.location.hash = "";
     }
 });
@@ -106,7 +108,13 @@ var ListView = Backbone.View.extend({
             item = new ListItemView({model:model});
             self.$el.append(item.el);
         });
-    } 
+    },
+    filterByTag:function(tag){
+        this.$el.attr('class','clearfix '+tag.toLowerCase());
+    },
+    clearFilter:function(){
+        this.$el.attr('class','clearfix');
+    }
 });
 
 /* **********************************************
@@ -278,20 +286,20 @@ var AppView = Backbone.View.extend({
     el: "body",
     initialize: function () {
         this.router = new AppRouter();
-
         this.collections.creatives = new Creatives();
         this.collections.creatives.fetch({
             success: function () {
                 Backbone.history.start();
             }
         });
-
         this.views.header = new AppHeaderView({});
         this.views.footer = new AppFooterView({});
         this.views.list = new ListView({collection: this.collections.creatives});
         this.views.show = new ShowView({});
         this.views.about = new AboutView({});
         this.views.entry = new EntryView({});
+
+
 
     },
     render: function () {
@@ -321,12 +329,17 @@ var AppView = Backbone.View.extend({
     },
     "filter:change": function (e, data) {
         console.log(data);
-        this.collections.creatives.filter();
+        this.views.list.$el.hide();
         if (data == "") {
             this.router.navigate("#/", false);
+            this.views.list.clearFilter();
+            //this.views.header.setSelected(data);
         } else {
             this.router.navigate("#/filter/" + data, false);
+            this.views.list.filterByTag(data);
+            this.views.header.setSelected(data);
         }
+        this.views.list.$el.show();
     }
 });
 
@@ -374,7 +387,7 @@ var AppRouter = Backbone.Router.extend({
         $('body').trigger('creative:random');
     },
     filter:function (tag){
-        $('body').trigger('filter:change',data);
+        $('body').trigger('filter:change',tag);
     }
 });
 

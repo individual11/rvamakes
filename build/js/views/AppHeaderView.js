@@ -16,14 +16,16 @@ var AppHeaderView = Backbone.View.extend({
     },
     updateFilter: function (e) {
         var $target = $(e.target);
-        this.$el.find(".options .selected").removeClass("selected");
-        $target.addClass("selected");
-        this.$el.find(".current").html($target.html());
+        //this.setSelected($target.data("filter"));
         this.$el.find(".options").fadeToggle(100);
         this.$el.trigger("filter:change", $target.data("filter"));
     },
+    setSelected:function(filter){
+        this.$el.find(".options .selected").removeClass("selected");
+        var title = this.$el.find(".options [data-filter="+filter+"]").addClass("selected").html();
+        this.$el.find(".current").html(title);
+    },
     reset: function () {
-        console.log('home');
         window.location.hash = "";
     }
 });
