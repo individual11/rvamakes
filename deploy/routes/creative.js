@@ -1,3 +1,7 @@
+var Twitter = require('node-twitter'),
+	twitterConfig = require('../config/twitter.js'),
+	twitter = new Twitter.RestClient(twitterConfig.consumerKey, twitterConfig.consumerSecret, twitterConfig.token, twitterConfig.tokenSecret);
+
 var AWS = require('aws-sdk'),
     mongoose = require('mongoose'),
     fs = require('fs');
@@ -57,6 +61,11 @@ exports.create = function (req, res, next) {
                 else {
                     new Creative(creative).save(function (err, creative, count) {
                         if (err) return next(err);
+                        
+                        //tweet about it
+                        //TODO: need to figure out the exact tweet or a combination to make it feel more natural
+                        var tweet = "We just added a new creative - " + creative.name;
+                        postToTwitter(tweet);
                         res.set('Content-Type', 'text/plain');
                         res.send(creative);
                     });
@@ -79,4 +88,23 @@ exports.reset = function (req, res, next) {
         if (err) res.status(500);
         res.status(200)
     });
+}
+
+//----- PRIVATE -------//
+function postToTwitter(status){
+	
+	twitter.statusesUpdate(
+	    {
+	        'status': status
+	    },
+	    function(error, result) {
+	        if (error){
+	            console.log('### TWITTER Error: ' + (error.code ? error.code + ' ' + error.message : error.message));
+	        }
+	
+	        if (result){
+	        	console.log('### TWEET SUCCESFUL');
+	            //console.log(result);
+	        }
+	});
 }

@@ -50,14 +50,14 @@ var AppHeaderView = Backbone.View.extend({
 
     },
     togglePanel: function () {
-        this.$el.find('.options').toggle();
+        this.$el.find('.options').fadeToggle(150);
     },
     updateFilter: function (e) {
         var $target = $(e.target);
         this.$el.find(".options .selected").removeClass("selected");
         $target.addClass("selected");
         this.$el.find(".current").html($target.html());
-        this.$el.find(".options").toggle();
+        this.$el.find(".options").fadeToggle(100);
         this.$el.trigger("filter:change", $target.data("filter"));
     },
     reset: function () {
@@ -142,33 +142,6 @@ var ListItemView = Backbone.View.extend({
 });
 
 /* **********************************************
-     Begin AboutView.js
-********************************************** */
-
-var AboutView = Backbone.View.extend({
-    el: '#about',
-    template: Mustache.compile($('#tmplAbout').html()),
-    initialize: function(){
-        this.render();
-    },
-    render:function(){
-        this.$el.html(this.template());
-    }
-});
-
-/* **********************************************
-     Begin ShowView.js
-********************************************** */
-
-var ShowView = Backbone.View.extend({
-    el: "#show",
-    template: Mustache.compile($("#tmplShowItem").html()),
-    renderCreative:function(json){
-        this.$el.html(this.template(json));
-    }
-});
-
-/* **********************************************
      Begin EntryView.js
 ********************************************** */
 
@@ -245,61 +218,6 @@ var EntryView = Backbone.View.extend({
 });
 
 /* **********************************************
-     Begin AppView.js
-********************************************** */
-
-var AppView = Backbone.View.extend({
-    el: "body",
-    initialize: function () {
-        this.router = new AppRouter();
-
-        this.collections.creatives = new Creatives();
-        this.collections.creatives.fetch({
-            success:function(){
-                Backbone.history.start();
-            }
-        });
-
-        this.views.header = new AppHeaderView({});
-        this.views.footer = new AppFooterView({});
-        this.views.list = new ListView({collection: this.collections.creatives});
-        this.views.show = new ShowView({});
-        this.views.about = new AboutView({});
-        this.views.entry = new EntryView({});
-
-    },
-    render: function () {
-
-    },
-    events: {
-        "creative:created": "creative:created",
-        "creative:show": "creative:show",
-        "creative:random": "creative:random",
-        "filter:change": "filter:change"
-    },
-    collections: {},
-    views: {},
-    "creative:created": function (e, model){
-        if(model instanceof Creative){
-            this.collections.creatives.add(model);
-            this.router.navigate("#/show/"+model.get("_id"),true);
-        }
-    },
-    "creative:show": function (e, data) {
-        console.log('creative:show',data);
-        var model = this.collections.creatives.findWhere({_id:data});
-        this.views.show.renderCreative(model.toJSON());
-    },
-    "creative:random": function () {
-        this.router.navigate("#/show/"+this.collections.creatives.randomId(),true);
-    },
-    "filter:change": function (e, data) {
-        console.log(data);
-
-    }
-});
-
-/* **********************************************
      Begin AppRouter.js
 ********************************************** */
 
@@ -351,6 +269,88 @@ var AppRouter = Backbone.Router.extend({
     filter:function (tag){
         console.log('filter', tag);
         $("list");
+    }
+});
+
+/* **********************************************
+     Begin AboutView.js
+********************************************** */
+
+var AboutView = Backbone.View.extend({
+    el: '#about',
+    template: Mustache.compile($('#tmplAbout').html()),
+    initialize: function(){
+        this.render();
+    },
+    render:function(){
+        this.$el.html(this.template());
+    }
+});
+
+/* **********************************************
+     Begin ShowView.js
+********************************************** */
+
+var ShowView = Backbone.View.extend({
+    el: "#show",
+    template: Mustache.compile($("#tmplShowItem").html()),
+    renderCreative:function(json){
+        this.$el.html(this.template(json));
+    }
+});
+
+/* **********************************************
+     Begin AppView.js
+********************************************** */
+
+var AppView = Backbone.View.extend({
+    el: "body",
+    initialize: function () {
+        this.router = new AppRouter();
+
+        this.collections.creatives = new Creatives();
+        this.collections.creatives.fetch({
+            success:function(){
+                Backbone.history.start();
+            }
+        });
+
+        this.views.header = new AppHeaderView({});
+        this.views.footer = new AppFooterView({});
+        this.views.list = new ListView({collection: this.collections.creatives});
+        this.views.show = new ShowView({});
+        this.views.about = new AboutView({});
+        this.views.entry = new EntryView({});
+
+    },
+    render: function () {
+
+    },
+    events: {
+        "creative:created": "creative:created",
+        "creative:show": "creative:show",
+        "creative:random": "creative:random",
+        "filter:change": "filter:change"
+    },
+    collections: {},
+    views: {},
+    "creative:created": function (e, model){
+        if(model instanceof Creative){
+            this.collections.creatives.add(model);
+            this.router.navigate("#/show/"+model.get("_id"),true);
+        }
+    },
+    "creative:show": function (e, data) {
+        console.log('creative:show',data);
+        var model = this.collections.creatives.findWhere({_id:data});
+        this.views.show.renderCreative(model.toJSON());
+    },
+    "creative:random": function () {
+        this.router.navigate("#/show/"+this.collections.creatives.randomId(),true);
+    },
+    "filter:change": function (e, data) {
+        console.log(data);
+
     }
 });
 

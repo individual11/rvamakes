@@ -12,14 +12,14 @@ var AppHeaderView = Backbone.View.extend({
 
     },
     togglePanel: function () {
-        this.$el.find('.options').toggle();
+        this.$el.find('.options').fadeToggle(150);
     },
     updateFilter: function (e) {
         var $target = $(e.target);
         this.$el.find(".options .selected").removeClass("selected");
         $target.addClass("selected");
         this.$el.find(".current").html($target.html());
-        this.$el.find(".options").toggle();
+        this.$el.find(".options").fadeToggle(100);
         this.$el.trigger("filter:change", $target.data("filter"));
     },
     reset: function () {
