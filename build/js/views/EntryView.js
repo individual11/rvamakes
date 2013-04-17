@@ -51,7 +51,17 @@ var EntryView = Backbone.View.extend({
         return errors;
     },
     showErrors: function (errors) {
-        //console.log(errors);
+        console.log(errors);
+        var $form = this.$el.find('form');
+        var $list = $form.find('#form_errors').empty();
+        var field;
+        $form.find('.error').removeClass('error');
+        errors.forEach(function(error){
+            field = '[name="'+error.field+'"]';
+            if (error.field == 'tags') field = 'fieldset';
+            $list.append("<p>"+error.msg+"</p>");
+            $form.find(field).addClass('error');
+        });
     },
     parseResponse: function () {
         var res = $('#upload').contents().text();

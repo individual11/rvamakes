@@ -23,8 +23,6 @@ a {
     }
 }
 
-
-
 header,
 footer {
     .inner {
@@ -51,9 +49,8 @@ header {
                 cursor: pointer;
             }
 
-            .prefix {
-                //width: 190px;
-                padding: 0  0 0 10px;
+            .prefix { //width: 190px;
+                padding: 0 0 0 10px;
                 float: left;
                 line-height: 73px;
 
@@ -78,10 +75,10 @@ header {
                 span {
                     font-size: 45px;
                     color: #efefef;
-                     .make-transition(@fadeOutTime);
+                    .make-transition(@fadeOutTime);
                     &:hover {
                         color: @turquoise;
-                         .make-transition();
+                        .make-transition();
                     }
                 }
                 margin-right: 10px;
@@ -238,6 +235,19 @@ section {
     form {
         margin-left: 10px;
 
+        #form_errors{
+            p{
+                background-color: @orange;
+                color: #fff;
+                font-size:15px;
+                font-weight:bold;
+                padding: 12px 18px;
+                margin:0 0 3px 0;
+                border-radius: 2px;
+
+            }
+        }
+
         div {
             clear: both;
             padding: 10px 0;
@@ -259,22 +269,30 @@ section {
                     border: 1px solid #eee;
                     padding: 4px;
                     font-size: 15px;
+
+                    &.error {
+                        border: 1px solid @orange;
+                    }
                 }
 
             }
             &.checkboxes {
-                fieldset{
+                fieldset {
                     border: 1px solid #eee;
                     border-radius: 4px;
 
-                    div{
-                        label{
-                            float:none;
+                    div {
+                        label {
+                            float: none;
                         }
                     }
 
                     label {
                         width: 140px;
+                    }
+
+                    &.error {
+                        border: 1px solid @orange;
                     }
                 }
             }
@@ -328,26 +346,26 @@ footer {
                 color: #777;
                 text-decoration: none;
                 text-transform: capitalize;
-                font-weight:bold;
+                font-weight: bold;
                 .make-transition(@fadeOutTime);
-                
-                &:hover{
-	                color: lighten(#777, 25%);
-	                .make-transition();
+
+                &:hover {
+                    color: lighten(#777, 25%);
+                    .make-transition();
                 }
 
-                &.cta{
-                    color:#fff;
-                    padding:11px 5px 12px 5px;
+                &.cta {
+                    color: #fff;
+                    padding: 11px 5px 12px 5px;
                     background: inherit;
                     .make-transition(@fadeOutTime);
-                     
-                    &:hover{
-	                    color:#000;
-	                    background: #fff;
-	                    .make-transition();
+
+                    &:hover {
+                        color: #000;
+                        background: #fff;
+                        .make-transition();
                     }
-                    
+
                 }
 
                 .rva-plus {

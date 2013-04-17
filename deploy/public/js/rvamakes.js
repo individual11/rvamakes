@@ -118,6 +118,7 @@ var ListItemView = Backbone.View.extend({
     template: Mustache.compile($("#tmplListItem").html()),
     events:{
         "click": "click",
+        "tap": "click",
         "mouseOver": "mouseOver",
         "mouseOut": "mouseOut"
     },
@@ -130,8 +131,8 @@ var ListItemView = Backbone.View.extend({
         this.$el.addClass(klasses).html(this.template(this.model.toJSON()));
     },
     click:function(e){
-        console.log("click", e);
-        //this.$el.trigger('creative:show',)
+        var path = this.$el.find('a').attr('href');
+        window.location.hash = path;
     },
     mouseOver:function(){
         console.log("mouseOver");
@@ -198,7 +199,17 @@ var EntryView = Backbone.View.extend({
         return errors;
     },
     showErrors: function (errors) {
-        //console.log(errors);
+        console.log(errors);
+        var $form = this.$el.find('form');
+        var $list = $form.find('#form_errors').empty();
+        var field;
+        $form.find('.error').removeClass('error');
+        errors.forEach(function(error){
+            field = '[name="'+error.field+'"]';
+            if (error.field == 'tags') field = 'fieldset';
+            $list.append("<p>"+error.msg+"</p>");
+            $form.find(field).addClass('error');
+        });
     },
     parseResponse: function () {
         var res = $('#upload').contents().text();
@@ -274,7 +285,7 @@ var AppRouter = Backbone.Router.extend({
     },
     filter:function (tag){
         console.log('filter', tag);
-        $("list");
+        $('body').trigger('filter:change',data);
     }
 });
 
@@ -362,61 +373,6 @@ var AppView = Backbone.View.extend({
         } else {
             this.router.navigate("#/filter/" + data, false);
         }
-    }
-});
-
-/* **********************************************
-     Begin AppRouter.js
-********************************************** */
-
-var AppRouter = Backbone.Router.extend({
-    routes:{
-        "list":"list",
-        "about": "about",
-        "entry": "entry",
-        "show/:id": "show",
-        "random": "random",
-        "filter/:tag": "filter",
-        '*path':  'defaultRoute'
-    },
-    initialize: function(){
-
-    },
-    hideSections: function () {
-        $('section').hide();
-    },
-    defaultRoute:function(){
-        this.list();
-    },
-
-    list: function () {
-        console.log('list');
-        this.hideSections();
-        $('#list').show();
-
-    },
-    about: function () {
-        console.log('about');
-        this.hideSections();
-        $('#about').show();
-    },
-    entry: function () {
-        console.log('entry');
-        this.hideSections();
-        $('#entry').show();
-    },
-    show: function (data) {
-        console.log('creative:show',data);
-        $('body').trigger('creative:show', data);
-        this.hideSections();
-        $('#show').show();
-    },
-    random: function () {
-        $('body').trigger('creative:random');
-    },
-    filter:function (tag){
-        console.log('filter', tag);
-        $('body').trigger('filter:change',data);
     }
 });
 
