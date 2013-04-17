@@ -78,11 +78,11 @@ header .inner .options div {
   cursor: pointer;
 }
 header .inner .options div:hover {
-  background: #0FF;
+  background: #6cf8fc;
   color: #000;
 }
 header .inner .options div.selected {
-  background: #00cccc;
+  background: #c16ee8;
   color: #000;
 }
 header .inner .options div.selected:hover {
@@ -114,10 +114,10 @@ section {
 }
 #list .item div.hover {
   opacity: 0;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   background-color: #000;
   background-color: rgba(0, 0, 0, 0.7);
 }
@@ -234,9 +234,34 @@ footer .inner div a {
   text-decoration: none;
   text-transform: capitalize;
   font-weight: bold;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+footer .inner div a:hover {
+  color: #b7b7b7;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 footer .inner div a.cta {
   color: #fff;
+  padding: 11px 5px 12px 5px;
+  background: inherit;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+footer .inner div a.cta:hover {
+  color: #000;
+  background: #fff;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 footer .inner div a .rva-plus {
   font-size: 13px;
