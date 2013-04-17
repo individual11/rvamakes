@@ -76,7 +76,7 @@ exports.create = function (req, res, next) {
 };
 
 exports.delete = function (req, res, next) {
-    var id = req.params[id];
+    var id = req.params["id"];
     Creative.findByIdAndRemove(id, function (err) {
         if (err) res.status(500);
         res.status(200)
