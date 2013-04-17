@@ -2,7 +2,6 @@
 connstring.txt
 codekit-config.json
 
-
 # Source file type that should be stored on creative server #
 #############################################################
 *.mp4
@@ -105,11 +104,3 @@ CVS
 *.mode2v3
 *.perspectivev3
 xcuserdata/
-=======
-connstring.txt
-codekit-config.json
-.gitignore
-deploy/config/aws.json
-deploy/config/twitter.json
-
->>>>>>> 9f992a11587a1cc025a7f3a0a93669caf0aea3a8

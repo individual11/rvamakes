@@ -3,4 +3,4 @@ module.exports = {
 	consumerSecret:"consumerSecret",
 	token:"accessTokenKey",
 	tokenSecret:"accessTokenSecret"
-}
+};
