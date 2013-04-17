@@ -202,22 +202,13 @@ section {
 #entry form {
   margin-left: 10px;
 }
-#entry form #form_errors p {
-  background-color: #ee5731;
-  color: #fff;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 12px 18px;
-  margin: 0 0 3px 0;
-  border-radius: 2px;
-}
 #entry form div {
   clear: both;
   padding: 10px 0;
   max-width: 450px;
 }
 #entry form div.field {
-  height: 28px;
+  min-height: 28px;
 }
 #entry form div.field label {
   width: 100px;
@@ -237,6 +228,18 @@ section {
 #entry form div.field input[type="email"].error,
 #entry form div.field input[type="url"].error {
   border: 1px solid #ee5731;
+}
+#entry form div.field .errors {
+  width: 100%;
+}
+#entry form div.field .errors p {
+  background-color: #ee5731;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 12px 18px;
+  margin: 0 0 3px 0;
+  border-radius: 2px;
 }
 #entry form div.checkboxes fieldset {
   border: 1px solid #eee;

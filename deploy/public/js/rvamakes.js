@@ -212,7 +212,7 @@ var EntryView = Backbone.View.extend({
         }
         if (data.url.length > 0) {
             if (!validUrl.test(data.url)) {
-                errors.push({field: 'url', msg: 'Url appear to be malformed, please review'})
+                errors.push({field: 'url', msg: 'URL appears to be malformed, please review'})
             }
         }
         if (!data.tags || data.tags == "") {
@@ -228,14 +228,23 @@ var EntryView = Backbone.View.extend({
     showErrors: function (errors) {
         console.log(errors);
         var $form = this.$el.find('form');
-        var $list = $form.find('#form_errors').empty();
-        var field;
         $form.find('.error').removeClass('error');
+        $form.find('.errors').empty();
+        var field, $field, $error;
         errors.forEach(function(error){
             field = '[name="'+error.field+'"]';
-            if (error.field == 'tags') field = 'fieldset';
-            $list.append("<p>"+error.msg+"</p>");
-            $form.find(field).addClass('error');
+            if (error.field == 'tags'){
+                field = 'fieldset';
+                $field = $form.find(field);
+                $error = $field.find('.errors');
+            }
+            else{
+                field = '[name="'+error.field+'"]';
+                $field = $form.find(field);
+                $error = $field.siblings('.errors');
+            }
+            $field.addClass('error');
+            $error.append("<p>"+error.msg+"</p>");
         });
     },
     parseResponse: function () {
@@ -335,9 +344,6 @@ var AppRouter = Backbone.Router.extend({
         "filter/:tag": "filter",
         '*path':  'defaultRoute'
     },
-    initialize: function(){
-
-    },
     hideSections: function () {
         $('section').hide();
         window.scrollTo(0,1);
@@ -347,23 +353,19 @@ var AppRouter = Backbone.Router.extend({
     },
 
     list: function () {
-        console.log('list');
         this.hideSections();
         $('#list').show();
 
     },
     about: function () {
-        console.log('about');
         this.hideSections();
         $('#about').show();
     },
     entry: function () {
-        console.log('entry');
         this.hideSections();
         $('#entry').show();
     },
     show: function (data) {
-        console.log('creative:show',data);
         $('body').trigger('creative:show', data);
         this.hideSections();
         $('#show').show();
@@ -372,7 +374,6 @@ var AppRouter = Backbone.Router.extend({
         $('body').trigger('creative:random');
     },
     filter:function (tag){
-        console.log('filter', tag);
         $('body').trigger('filter:change',data);
     }
 });

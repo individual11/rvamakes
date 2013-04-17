@@ -2,20 +2,22 @@
     <p>ADD YOURSELF</p>
 
     <div>
-        <form target="upload" enctype="multipart/form-data"  method="POST" action="/api/creatives" accept-charset="UTF-8">
+        <form target="upload" enctype="multipart/form-data" method="POST" action="/api/creatives" accept-charset="UTF-8">
             <input type="hidden" name="_csrf" value="<%= csrftoken %>">
-            <div id="form_errors"></div>
             <div class="field">
                 <label for="form_name">Name</label>
                 <input type="text" name="name" id="form_name">
+                <div class="errors"></div>
             </div>
             <div class="field">
                 <label for="form_email">Email</label>
                 <input type="email" name="email" id="form_email">
+                <div class="errors"></div>
             </div>
             <div class="field">
                 <label for="form_url">URL</label>
-                <input type="url" name="url" id="form_url">
+                <input type="text" name="url" id="form_url">
+                <div class="errors"></div>
             </div>
             <div class="field">
                 <label for="form_img">Image</label>
@@ -26,39 +28,42 @@
             </div>
             <div class="field checkboxes">
                 <fieldset>
-                <label for="form_tags_designer">
-                    <input type="checkbox" name="tags" id="form_tags_designer" value="designer"> Designer
-                </label>
-                <label for="form_tags_developer">
-                    <input type="checkbox" name="tags" id="form_tags_developer" value="developer"> Developer
-                </label>
-                <label for="form_tags_photographer">
-                    <input type="checkbox" name="tags" id="form_tags_photographer" value="photographer"> Photographer
-                </label>
-                <label for="form_tags_illustrator">
-                    <input type="checkbox" name="tags" id="form_tags_illustrator" value="illustrator"> Illustrator
-                </label>
-                <label for="form_tags_musician">
-                    <input type="checkbox" name="tags" id="form_tags_musician" value="musician"> Musician
-                </label>
-                <label for="form_tags_writer">
-                    <input type="checkbox" name="tags" id="form_tags_writer" value="writer"> Writer
-                </label>
-                <label for="form_tags_filmmaker">
-                    <input type="checkbox" name="tags" id="form_tags_filmmaker" value="filmmaker"> Filmmaker
-                </label>
-                <label for="form_tags_crafter">
-                    <input type="checkbox" name="tags" id="form_tags_crafter" value="crafter"> Crafter
-                </label>
-                <label for="form_tags_cook">
-                    <input type="checkbox" name="tags" id="form_tags_cook" value="cook"> Cook
-                </label>
-                <label for="form_tags_mographer">
-                    <input type="checkbox" name="tags" id="form_tags_mographer" value="mographer"> Mographer
-                </label>
-                <label for="form_tags_technologist">
-                    <input type="checkbox" name="tags" id="form_tags_technologist" value="technologist"> Technologist
-                </label>
+                    <div class="errors"></div>
+                    <label for="form_tags_designer">
+                        <input type="checkbox" name="tags" id="form_tags_designer" value="designer"> Designer
+                    </label>
+                    <label for="form_tags_developer">
+                        <input type="checkbox" name="tags" id="form_tags_developer" value="developer"> Developer
+                    </label>
+                    <label for="form_tags_photographer">
+                        <input type="checkbox" name="tags" id="form_tags_photographer" value="photographer">
+                        Photographer
+                    </label>
+                    <label for="form_tags_illustrator">
+                        <input type="checkbox" name="tags" id="form_tags_illustrator" value="illustrator"> Illustrator
+                    </label>
+                    <label for="form_tags_musician">
+                        <input type="checkbox" name="tags" id="form_tags_musician" value="musician"> Musician
+                    </label>
+                    <label for="form_tags_writer">
+                        <input type="checkbox" name="tags" id="form_tags_writer" value="writer"> Writer
+                    </label>
+                    <label for="form_tags_filmmaker">
+                        <input type="checkbox" name="tags" id="form_tags_filmmaker" value="filmmaker"> Filmmaker
+                    </label>
+                    <label for="form_tags_crafter">
+                        <input type="checkbox" name="tags" id="form_tags_crafter" value="crafter"> Crafter
+                    </label>
+                    <label for="form_tags_cook">
+                        <input type="checkbox" name="tags" id="form_tags_cook" value="cook"> Cook
+                    </label>
+                    <label for="form_tags_mographer">
+                        <input type="checkbox" name="tags" id="form_tags_mographer" value="mographer"> Mographer
+                    </label>
+                    <label for="form_tags_technologist">
+                        <input type="checkbox" name="tags" id="form_tags_technologist" value="technologist">
+                        Technologist
+                    </label>
                 </fieldset>
             </div>
             <div class="ctrls">
