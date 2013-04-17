@@ -64,9 +64,17 @@ header .inner .selector .fob {
 header .inner .selector .fob span {
   font-size: 45px;
   color: #efefef;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 header .inner .selector .fob span:hover {
   color: #6cf8fc;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 header .inner .options {
   z-index: 4000;
