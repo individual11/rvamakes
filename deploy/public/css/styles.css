@@ -33,13 +33,13 @@ header .inner {
 header .inner .selector .prefix,
 header .inner .selector .current,
 header .inner .selector .fob {
-  line-height: 90px;
+  line-height: 84px;
+  font-size: 84px;
   font-family: "Arial Black", Helvetica Neue, Helvetica, Arial;
   font-weight: bold;
   cursor: pointer;
 }
 header .inner .selector .prefix {
-  font-size: 84px;
   padding: 0 5px;
   float: left;
   line-height: 79px;
