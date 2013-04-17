@@ -110,5 +110,6 @@ connstring.txt
 codekit-config.json
 .gitignore
 deploy/config/aws.json
+deploy/config/twitter.json
 
 >>>>>>> 9f992a11587a1cc025a7f3a0a93669caf0aea3a8
