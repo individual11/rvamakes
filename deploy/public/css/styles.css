@@ -42,7 +42,7 @@ header .inner .selector .fob {
 header .inner .selector .prefix {
   padding: 0 5px;
   float: left;
-  line-height: 79px;
+  line-height: 73px;
 }
 header .inner .selector .prefix span {
   color: #333;
@@ -360,7 +360,7 @@ you can use the generic selector below, but it's slower:
     padding: 0 5px;
     color: #777;
     float: left;
-    line-height: 94px;
+    line-height: 87px;
   }
   header .inner .selector .prefix span {
     font-size: 76px;
@@ -391,7 +391,7 @@ you can use the generic selector below, but it's slower:
     width: 735px;
   }
   header .inner .selector .prefix {
-    line-height: 60px;
+    line-height: 55px;
   }
   header .inner .selector .prefix span {
     font-size: 46px;
