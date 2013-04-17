@@ -37,7 +37,7 @@ var EntryView = Backbone.View.extend({
         }
         if (data.url.length > 0) {
             if (!validUrl.test(data.url)) {
-                errors.push({field: 'url', msg: 'Url appear to be malformed, please review'})
+                errors.push({field: 'url', msg: 'URL appears to be malformed, please review'})
             }
         }
         if (!data.tags || data.tags == "") {
@@ -53,14 +53,23 @@ var EntryView = Backbone.View.extend({
     showErrors: function (errors) {
         console.log(errors);
         var $form = this.$el.find('form');
-        var $list = $form.find('#form_errors').empty();
-        var field;
         $form.find('.error').removeClass('error');
+        $form.find('.errors').empty();
+        var field, $field, $error;
         errors.forEach(function(error){
             field = '[name="'+error.field+'"]';
-            if (error.field == 'tags') field = 'fieldset';
-            $list.append("<p>"+error.msg+"</p>");
-            $form.find(field).addClass('error');
+            if (error.field == 'tags'){
+                field = 'fieldset';
+                $field = $form.find(field);
+                $error = $field.find('.errors');
+            }
+            else{
+                field = '[name="'+error.field+'"]';
+                $field = $form.find(field);
+                $error = $field.siblings('.errors');
+            }
+            $field.addClass('error');
+            $error.append("<p>"+error.msg+"</p>");
         });
     },
     parseResponse: function () {

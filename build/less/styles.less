@@ -194,6 +194,8 @@ section {
             }
         }
     }
+
+    @import 'filter';
 }
 
 #about {
@@ -235,18 +237,7 @@ section {
     form {
         margin-left: 10px;
 
-        #form_errors{
-            p{
-                background-color: @orange;
-                color: #fff;
-                font-size:15px;
-                font-weight:bold;
-                padding: 12px 18px;
-                margin:0 0 3px 0;
-                border-radius: 2px;
 
-            }
-        }
 
         div {
             clear: both;
@@ -254,7 +245,7 @@ section {
             max-width: 450px;
 
             &.field {
-                height: 28px;
+                min-height: 28px;
 
                 label {
                     width: 100px;
@@ -272,6 +263,19 @@ section {
 
                     &.error {
                         border: 1px solid @orange;
+                    }
+                }
+                .errors{
+                    width:100%;
+                    p{
+                        background-color: @orange;
+                        color: #fff;
+                        font-size:15px;
+                        font-weight:bold;
+                        padding: 12px 18px;
+                        margin:0 0 3px 0;
+                        border-radius: 2px;
+
                     }
                 }
 

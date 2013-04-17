@@ -2,20 +2,20 @@ var AppView = Backbone.View.extend({
     el: "body",
     initialize: function () {
         this.router = new AppRouter();
-
         this.collections.creatives = new Creatives();
         this.collections.creatives.fetch({
             success: function () {
                 Backbone.history.start();
             }
         });
-
         this.views.header = new AppHeaderView({});
         this.views.footer = new AppFooterView({});
         this.views.list = new ListView({collection: this.collections.creatives});
         this.views.show = new ShowView({});
         this.views.about = new AboutView({});
         this.views.entry = new EntryView({});
+
+
 
     },
     render: function () {
@@ -44,12 +44,14 @@ var AppView = Backbone.View.extend({
         this.router.navigate("#/show/" + this.collections.creatives.randomId(), true);
     },
     "filter:change": function (e, data) {
-        console.log(data);
-        this.collections.creatives.filter();
+        console.log('filter:change',data);
         if (data == "") {
             this.router.navigate("#/", false);
+            this.views.list.clearFilter();
+            this.views.header.setSelected(data);
         } else {
-            this.router.navigate("#/filter/" + data, false);
+            this.views.list.filterByTag(data);
+            this.views.header.setSelected(data);
         }
     }
 });
