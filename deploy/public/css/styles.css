@@ -224,19 +224,31 @@ section {
   padding: 4px;
   font-size: 15px;
 }
-#entry form div.checkboxes label {
-  width: 150px;
+#entry form div.checkboxes fieldset {
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+#entry form div.checkboxes fieldset div label {
+  float: none;
+}
+#entry form div.checkboxes fieldset label {
+  width: 140px;
+}
+#entry form div.ctrls {
+  padding-top: 30px;
 }
 #entry form div.ctrls button {
-  background-color: #000;
+  background-color: #333;
   color: #fff;
   display: block;
   text-align: center;
-  width: 200px;
+  width: 100%;
   border: none;
   padding: 12px 6px;
   font-size: 15px;
   font-weight: bold;
+  margin: 0 auto;
+  border-radius: 2px;
 }
 #show img {
   max-width: 225px;

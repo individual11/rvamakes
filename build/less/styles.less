@@ -263,21 +263,35 @@ section {
 
             }
             &.checkboxes {
-                label {
-                    width: 150px;
+                fieldset{
+                    border: 1px solid #eee;
+                    border-radius: 4px;
+
+                    div{
+                        label{
+                            float:none;
+                        }
+                    }
+
+                    label {
+                        width: 140px;
+                    }
                 }
             }
             &.ctrls {
+                padding-top: 30px;
                 button {
-                    background-color: #000;
+                    background-color: #333;
                     color: #fff;
                     display: block;
                     text-align: center;
-                    width: 200px;
+                    width: 100%;
                     border: none;
                     padding: 12px 6px;
                     font-size: 15px;
                     font-weight: bold;
+                    margin: 0 auto;
+                    border-radius: 2px;
 
                 }
             }

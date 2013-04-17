@@ -15,7 +15,8 @@ var EntryView = Backbone.View.extend({
     processEntry: function (e) {
         var data = this.$el.find('form').serializeObject();
         var errors = this.validateForm(data);
-        if (errors.length > 0){
+        console.log(data, errors);
+        if (errors.length > 0) {
             e.preventDefault();
             this.showErrors(errors);
         }
@@ -39,13 +40,18 @@ var EntryView = Backbone.View.extend({
                 errors.push({field: 'url', msg: 'Url appear to be malformed, please review'})
             }
         }
-        //if (data.tags.length > 3){
-        //    errors.push({field: 'tags', msg: 'The number of selected tags cannot exceed 3'})
-        //}
+        if (!data.tags || data.tags == "") {
+            errors.push({field: 'tags', msg: 'Select 1 or more tags that describe you'})
+        }
+        if (data.tags instanceof Array) {
+            if (data.tags.length > 3) {
+                errors.push({field: 'tags', msg: 'The number of selected tags cannot exceed 3'})
+            }
+        }
         return errors;
     },
-    showErrors: function(errors){
-        console.log(errors);
+    showErrors: function (errors) {
+        //console.log(errors);
     },
     parseResponse: function () {
         var res = $('#upload').contents().text();
