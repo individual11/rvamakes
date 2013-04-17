@@ -1,6 +1,4 @@
 *.orig
-deploy/config/aws.json
-deploy/config/twitter.js
 connstring.txt
 codekit-config.json
 
