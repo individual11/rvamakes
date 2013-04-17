@@ -13,6 +13,7 @@ var AppRouter = Backbone.Router.extend({
     },
     hideSections: function () {
         $('section').hide();
+        window.scrollTo(0,1);
     },
     defaultRoute:function(){
         this.list();
