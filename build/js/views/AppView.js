@@ -5,7 +5,7 @@ var AppView = Backbone.View.extend({
 
         this.collections.creatives = new Creatives();
         this.collections.creatives.fetch({
-            success:function(){
+            success: function () {
                 Backbone.history.start();
             }
         });
@@ -29,22 +29,27 @@ var AppView = Backbone.View.extend({
     },
     collections: {},
     views: {},
-    "creative:created": function (e, model){
-        if(model instanceof Creative){
+    "creative:created": function (e, model) {
+        if (model instanceof Creative) {
             this.collections.creatives.add(model);
-            this.router.navigate("#/show/"+model.get("_id"),true);
+            this.router.navigate("#/show/" + model.get("_id"), true);
         }
     },
     "creative:show": function (e, data) {
-        console.log('creative:show',data);
-        var model = this.collections.creatives.findWhere({_id:data});
+        console.log('creative:show', data);
+        var model = this.collections.creatives.findWhere({_id: data});
         this.views.show.renderCreative(model.toJSON());
     },
     "creative:random": function () {
-        this.router.navigate("#/show/"+this.collections.creatives.randomId(),true);
+        this.router.navigate("#/show/" + this.collections.creatives.randomId(), true);
     },
     "filter:change": function (e, data) {
         console.log(data);
-
+        this.collections.creatives.filter();
+        if (data == "") {
+            this.router.navigate("#/", false);
+        } else {
+            this.router.navigate("#/filter/" + data, false);
+        }
     }
 });

@@ -25,7 +25,7 @@ var Creatives = Backbone.Collection.extend({
     url: 'api/creatives',
     randomId: function(){
         // get ubound of array
-        var ubound = this.models.length - 1;
+        var ubound = this.models.length;
         // get random index
         var randex = Math.floor(Math.random() * ubound);
         return this.models[randex].get("_id");
@@ -316,7 +316,7 @@ var AppView = Backbone.View.extend({
 
         this.collections.creatives = new Creatives();
         this.collections.creatives.fetch({
-            success:function(){
+            success: function () {
                 Backbone.history.start();
             }
         });
@@ -340,23 +340,83 @@ var AppView = Backbone.View.extend({
     },
     collections: {},
     views: {},
-    "creative:created": function (e, model){
-        if(model instanceof Creative){
+    "creative:created": function (e, model) {
+        if (model instanceof Creative) {
             this.collections.creatives.add(model);
-            this.router.navigate("#/show/"+model.get("_id"),true);
+            this.router.navigate("#/show/" + model.get("_id"), true);
         }
     },
     "creative:show": function (e, data) {
-        console.log('creative:show',data);
-        var model = this.collections.creatives.findWhere({_id:data});
+        console.log('creative:show', data);
+        var model = this.collections.creatives.findWhere({_id: data});
         this.views.show.renderCreative(model.toJSON());
     },
     "creative:random": function () {
-        this.router.navigate("#/show/"+this.collections.creatives.randomId(),true);
+        this.router.navigate("#/show/" + this.collections.creatives.randomId(), true);
     },
     "filter:change": function (e, data) {
         console.log(data);
+        this.collections.creatives.filter();
+        if (data == "") {
+            this.router.navigate("#/", false);
+        } else {
+            this.router.navigate("#/filter/" + data, false);
+        }
+    }
+});
 
+/* **********************************************
+     Begin AppRouter.js
+********************************************** */
+
+var AppRouter = Backbone.Router.extend({
+    routes:{
+        "list":"list",
+        "about": "about",
+        "entry": "entry",
+        "show/:id": "show",
+        "random": "random",
+        "filter/:tag": "filter",
+        '*path':  'defaultRoute'
+    },
+    initialize: function(){
+
+    },
+    hideSections: function () {
+        $('section').hide();
+    },
+    defaultRoute:function(){
+        this.list();
+    },
+
+    list: function () {
+        console.log('list');
+        this.hideSections();
+        $('#list').show();
+
+    },
+    about: function () {
+        console.log('about');
+        this.hideSections();
+        $('#about').show();
+    },
+    entry: function () {
+        console.log('entry');
+        this.hideSections();
+        $('#entry').show();
+    },
+    show: function (data) {
+        console.log('creative:show',data);
+        $('body').trigger('creative:show', data);
+        this.hideSections();
+        $('#show').show();
+    },
+    random: function () {
+        $('body').trigger('creative:random');
+    },
+    filter:function (tag){
+        console.log('filter', tag);
+        $('body').trigger('filter:change',data);
     }
 });
 

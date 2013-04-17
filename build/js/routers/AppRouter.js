@@ -45,6 +45,6 @@ var AppRouter = Backbone.Router.extend({
     },
     filter:function (tag){
         console.log('filter', tag);
-        $("list");
+        $('body').trigger('filter:change',data);
     }
 });
