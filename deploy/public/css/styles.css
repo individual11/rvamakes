@@ -521,8 +521,9 @@ you can use the generic selector below, but it's slower:
     font-size: 20px;
   }
   header .inner .selector .current {
-    font-size: 29px;
-    margin: -1px;
+    font-size: 28px;
+    margin-top: -2px;
+    margin-left: 1px;
   }
   header .inner .selector .fob {
     width: 50px;
@@ -531,6 +532,9 @@ you can use the generic selector below, but it's slower:
   }
   header .inner .selector .fob span {
     font-size: 25px;
+  }
+  header .inner .options div {
+    font-size: 20px;
   }
   section {
     padding-top: 20px;
