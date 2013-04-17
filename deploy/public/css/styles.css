@@ -40,7 +40,7 @@ header .inner .selector .fob {
   cursor: pointer;
 }
 header .inner .selector .prefix {
-  padding: 0 5px;
+  padding: 0  0 0 10px;
   float: left;
   line-height: 73px;
 }
@@ -357,7 +357,6 @@ you can use the generic selector below, but it's slower:
     width: 1225px;
   }
   header .inner .selector .prefix {
-    padding: 0 5px;
     color: #777;
     float: left;
     line-height: 87px;
@@ -495,6 +494,9 @@ you can use the generic selector below, but it's slower:
   #list .item {
     padding: 0;
     margin: 0 0 20px;
+  }
+  footer .inner div {
+    margin-right: 28px;
   }
 }
 .clearfix:before,
