@@ -221,7 +221,7 @@ var EntryView = Backbone.View.extend({
     showErrors: function(errors){
         console.log(errors);
     },
-    parseResponse: function (e) {
+    parseResponse: function () {
         var res = $('#upload').contents().text();
         if (res) {
             try {
