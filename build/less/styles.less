@@ -5,18 +5,22 @@ html,
 body {
     height: 100%;
     margin: 0px;
-    font-family: @baseFontFamily;
+    font-family: @baseFontFamily; // force antialiasing
+    -webkit-font-smoothing: sub-pixel;
+    -moz-font-smoothing: sub-pixel;
+    -o-font-smoothing: sub-pixel;
+    font-smoothing: sub-pixel;
 }
 
-a{
-	text-decoration: none;
-	color:@linkColor;
-	&:hover{
-		color:@linkHoverColor;
-	}
-	&:visited{
-		color:@linkVisitedColor;
-	}
+a {
+    text-decoration: none;
+    color: @linkColor;
+    &:hover {
+        color: @linkHoverColor;
+    }
+    &:visited {
+        color: @linkVisitedColor;
+    }
 }
 
 header,
@@ -38,24 +42,29 @@ header {
             .prefix,
             .current,
             .fob {
-                line-height: 84px;
-                font-size: 84px;
+                line-height: 90px;
                 font-family: @headerFontFamily;
                 font-weight: bold;
                 cursor: pointer;
             }
 
             .prefix {
-                //width: 190px;
+                font-size: 84px;
                 padding: 0 5px;
-                color: #777;
                 float: left;
+                line-height: 79px;
+
+                span {
+                    color: #333;
+                    font-size: 60px;
+                }
             }
 
             .current {
+                color: #333;
                 float: left;
                 margin-top: -2px;
-                font-size: 98px !important;
+                font-size: 84px;
             }
 
             .fob {
@@ -63,10 +72,12 @@ header {
                 width: 60px;
                 text-align: center;
                 float: right;
-                &:hover {
-                    background: #0FF;
-                    color: #000;
-
+                span {
+                    font-size: 45px;
+                    color: #efefef;
+                    &:hover {
+                        color: @turquoise;
+                    }
                 }
                 margin-right: 10px;
             }
@@ -165,10 +176,9 @@ section {
         }
     }
 
-
-    &.touch{
+    &.touch {
         .item {
-            div.hover{
+            div.hover {
                 opacity: 1.0;
                 top: 160px;
                 background-color: #000;
@@ -185,33 +195,33 @@ section {
 }
 
 #about {
-	
-	padding-left: 30px;
 
-	ul.contributors{
-		margin-top:-5px;
-		li {
-			list-style-type: none;
-			margin-left: -40px;
-			margin-bottom: 5px;
-			&.spade:before {
-				content: "\2660 \0020";
-				color:@linkColor;
-		    }
-		    &.club:before {
-				content: "\2663 \0020";
-				color:@linkColor;
-		    }
-		    &.heart:before {
-				content: "\2665 \0020";
-				color:@linkColor;
-		    }
-		    &.diamond:before {
-				content: "\2666 \0020";
-				color:@linkColor;
-		    }
-		}
-	}
+    padding-left: 30px;
+
+    ul.contributors {
+        margin-top: -5px;
+        li {
+            list-style-type: none;
+            margin-left: -40px;
+            margin-bottom: 5px;
+            &.spade:before {
+                content: "\2660 \0020";
+                color: @linkColor;
+            }
+            &.club:before {
+                content: "\2663 \0020";
+                color: @linkColor;
+            }
+            &.heart:before {
+                content: "\2665 \0020";
+                color: @linkColor;
+            }
+            &.diamond:before {
+                content: "\2666 \0020";
+                color: @linkColor;
+            }
+        }
+    }
 }
 
 #entry {
@@ -265,10 +275,10 @@ section {
 }
 
 #show {
-	img{
-		max-width: 225px;
-		max-height: 220px;
-	}
+    img {
+        max-width: 225px;
+        max-height: 220px;
+    }
 }
 
 footer {
@@ -291,14 +301,14 @@ footer {
                 color: #777;
                 text-decoration: none;
                 text-transform: capitalize;
-                font-weight:bold;
+                font-weight: bold;
 
-                &.cta{
-                    color:#fff;
+                &.cta {
+                    color: #fff;
                 }
 
-                .rva-plus{
-                    font-size:13px;
+                .rva-plus {
+                    font-size: 13px;
                 }
             }
 
@@ -308,8 +318,6 @@ footer {
         }
     }
 }
-
-
 
 // RVA icon font styles
 

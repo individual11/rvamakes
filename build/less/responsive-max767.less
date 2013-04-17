@@ -8,7 +8,7 @@
 
     header {
         height: 50px;
-        border-bottom: 1px solid #000;
+        border-bottom: 1px solid #efefef;
         .inner {
             padding-top: 0px;
             .selector {
@@ -17,17 +17,25 @@
                 .current,
                 .fob {
                     line-height: 50px;
-                    font-size: 30px;
                 }
-                .current{
-	               margin:-2px;
-	               font-size: 35px !important;
-               }
+                .prefix {
+                    line-height: 5px;
+                    span {
+                        font-size: 24px;
+                    }
+                }
+                .current {
+                    font-size: 35px;
+                    margin: -2px;
+                }
                 .fob {
                     width: 50px;
-                    font-size: 21px;
                     margin-right: 0px;
-                    background-color: darken(#fff, 7%);
+                    line-height: 28px;
+                    span {
+
+                        font-size: 25px;
+                    }
                 }
             }
             .options {

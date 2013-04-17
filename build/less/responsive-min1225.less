@@ -1,4 +1,3 @@
-
 @media (min-width: 1225px) {
     header,
     footer {
@@ -10,29 +9,32 @@
     header {
         .inner {
             .selector {
-
-                .prefix,
-                .current,
-                .fob {
-                    line-height: 90px;
-                    font-size: 90px;
-                    font-weight: bold;
-                }
-
                 .prefix {
+
+                    span {
+                        font-size: 76px;
+                    }
                     padding: 0 5px;
                     color: #777;
                     float: left;
+                    line-height:94px;
                 }
-                .current{
-	                margin-top: -2px;
-	                font-size: 105px !important;
+                .current {
+
+                    margin-top: -2px;
+                    font-size: 105px;
+                }
+                .fob {
+                    span {
+                        font-size: 45px;
+                    }
                 }
             }
             .options {
-                width: @largeInnerWidth - 230px;
+                left:235px;
+                width: @largeInnerWidth - 245px;
                 div {
-                    width: 457px;
+                    width: 450px;
                     line-height: 45px;
                     font-size: 45px;
 
@@ -44,11 +46,8 @@
     section {
         width: @largeInnerWidth;
     }
-    
-    #about{
-	   // margin:auto;
+
+    #about { // margin:auto;
     }
-    
-    
-    
+
 }

@@ -3,6 +3,10 @@ body {
   height: 100%;
   margin: 0px;
   font-family: Helvetica Neue, Helvetica, Arial;
+  -webkit-font-smoothing: sub-pixel;
+  -moz-font-smoothing: sub-pixel;
+  -o-font-smoothing: sub-pixel;
+  font-smoothing: sub-pixel;
 }
 a {
   text-decoration: none;
@@ -29,21 +33,26 @@ header .inner {
 header .inner .selector .prefix,
 header .inner .selector .current,
 header .inner .selector .fob {
-  line-height: 84px;
-  font-size: 84px;
+  line-height: 90px;
   font-family: "Arial Black", Helvetica Neue, Helvetica, Arial;
   font-weight: bold;
   cursor: pointer;
 }
 header .inner .selector .prefix {
+  font-size: 84px;
   padding: 0 5px;
-  color: #777;
   float: left;
+  line-height: 79px;
+}
+header .inner .selector .prefix span {
+  color: #333;
+  font-size: 60px;
 }
 header .inner .selector .current {
+  color: #333;
   float: left;
   margin-top: -2px;
-  font-size: 98px !important;
+  font-size: 84px;
 }
 header .inner .selector .fob {
   font-size: 60px;
@@ -52,9 +61,12 @@ header .inner .selector .fob {
   float: right;
   margin-right: 10px;
 }
-header .inner .selector .fob:hover {
-  background: #0FF;
-  color: #000;
+header .inner .selector .fob span {
+  font-size: 45px;
+  color: #efefef;
+}
+header .inner .selector .fob span:hover {
+  color: #6cf8fc;
 }
 header .inner .options {
   z-index: 4000;
@@ -319,27 +331,28 @@ you can use the generic selector below, but it's slower:
   footer .inner {
     width: 1225px;
   }
-  header .inner .selector .prefix,
-  header .inner .selector .current,
-  header .inner .selector .fob {
-    line-height: 90px;
-    font-size: 90px;
-    font-weight: bold;
-  }
   header .inner .selector .prefix {
     padding: 0 5px;
     color: #777;
     float: left;
+    line-height: 94px;
+  }
+  header .inner .selector .prefix span {
+    font-size: 76px;
   }
   header .inner .selector .current {
     margin-top: -2px;
-    font-size: 105px !important;
+    font-size: 105px;
+  }
+  header .inner .selector .fob span {
+    font-size: 45px;
   }
   header .inner .options {
-    width: 995px;
+    left: 235px;
+    width: 980px;
   }
   header .inner .options div {
-    width: 457px;
+    width: 450px;
     line-height: 45px;
     font-size: 45px;
   }
@@ -352,15 +365,15 @@ you can use the generic selector below, but it's slower:
   footer .inner {
     width: 735px;
   }
-  header .inner .selector .prefix,
-  header .inner .selector .current,
-  header .inner .selector .fob {
-    line-height: 90px;
-    font-size: 60px;
+  header .inner .selector .prefix {
+    line-height: 60px;
+  }
+  header .inner .selector .prefix span {
+    font-size: 46px;
   }
   header .inner .selector .current {
+    font-size: 64px;
     margin: -4px;
-    font-size: 70px !important;
   }
   header .inner .options {
     left: 0;
@@ -382,7 +395,7 @@ you can use the generic selector below, but it's slower:
   }
   header {
     height: 50px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #efefef;
   }
   header .inner {
     padding-top: 0px;
@@ -391,17 +404,24 @@ you can use the generic selector below, but it's slower:
   header .inner .selector .current,
   header .inner .selector .fob {
     line-height: 50px;
-    font-size: 30px;
+  }
+  header .inner .selector .prefix {
+    line-height: 5px;
+  }
+  header .inner .selector .prefix span {
+    font-size: 24px;
   }
   header .inner .selector .current {
+    font-size: 35px;
     margin: -2px;
-    font-size: 35px !important;
   }
   header .inner .selector .fob {
     width: 50px;
-    font-size: 21px;
     margin-right: 0px;
-    background-color: #ededed;
+    line-height: 28px;
+  }
+  header .inner .selector .fob span {
+    font-size: 25px;
   }
   header .inner .options {
     top: 50px;
@@ -424,11 +444,24 @@ you can use the generic selector below, but it's slower:
   header .inner .selector .current,
   header .inner .selector .fob {
     line-height: 50px;
-    font-size: 24px;
+  }
+  header .inner .selector .prefix {
+    line-height: 1px;
+  }
+  header .inner .selector .prefix span {
+    font-size: 20px;
   }
   header .inner .selector .current {
+    font-size: 29px;
     margin: -1px;
-    font-size: 28px !important;
+  }
+  header .inner .selector .fob {
+    width: 50px;
+    margin-right: 0px;
+    line-height: 28px;
+  }
+  header .inner .selector .fob span {
+    font-size: 25px;
   }
   section {
     padding-top: 20px;
