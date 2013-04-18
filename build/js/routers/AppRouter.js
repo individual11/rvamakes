@@ -14,7 +14,6 @@ var AppRouter = Backbone.Router.extend({
         window.scrollTo(0,1);
     },
     defaultRoute:function(){
-        tracker.trackView();
         this.list();
     },
 
