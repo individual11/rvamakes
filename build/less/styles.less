@@ -314,7 +314,8 @@ section {
                     font-weight: bold;
                     margin: 0 auto;
                     border-radius: 2px;
-
+                    cursor: hand;
+                    cursor: pointer;
                 }
             }
         }
@@ -324,6 +325,49 @@ section {
 }
 
 #show {
+	margin-top:30px;
+	
+	.avatar{
+		float: left;
+	}
+	.info{
+		float: left;
+		margin-left: 20px;
+		margin-bottom: 20px;
+	}
+	
+	h2{
+		margin-top:0;
+	}
+	
+	.url{
+		margin-top:-20px;
+	}
+	
+	ul{
+		margin-left: -40px;
+		li {
+			list-style-type: none;
+			
+			a{
+            
+	            float: left;
+	            padding: 3px 6px;
+	            margin-right: 4px;
+	            .rounded-corners;
+	            color: #fff;
+	            .tagSetup;
+	            
+	            &.illustrator{
+		            .tagSetup(@illustratorColor);
+	            }
+	            &.developer{
+		            .tagSetup(@developerColor);
+	            }
+	        }
+        }
+	}
+	
     img {
         max-width: 225px;
         max-height: 220px;
@@ -405,5 +449,10 @@ footer {
 
 .clearfix:after {
     clear: both;
+}
+
+//other utils
+.pull-up{
+	margin-top:-10px;
 }
 
