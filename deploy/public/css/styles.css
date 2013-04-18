@@ -318,6 +318,59 @@ section {
   cursor: hand;
   cursor: pointer;
 }
+#show {
+  margin-top: 30px;
+}
+#show .avatar {
+  float: left;
+}
+#show .info {
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+#show h2 {
+  margin-top: 0;
+}
+#show .url {
+  margin-top: -20px;
+}
+#show ul {
+  margin-left: -40px;
+}
+#show ul li {
+  list-style-type: none;
+}
+#show ul li a {
+  float: left;
+  padding: 3px 6px;
+  margin-right: 4px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+  background: #f49178;
+}
+#show ul li a:hover {
+  background: #ee5731;
+  color: #fff;
+}
+#show ul li a.illustrator {
+  background: #ddb0f2;
+}
+#show ul li a.illustrator:hover {
+  background: #c16ee8;
+  color: #fff;
+}
+#show ul li a.developer {
+  background: #b7fcfe;
+}
+#show ul li a.developer:hover {
+  background: #6cf8fc;
+  color: #fff;
+}
 #show img {
   max-width: 225px;
   max-height: 220px;
@@ -599,6 +652,12 @@ you can use the generic selector below, but it's slower:
     padding-left: 0;
     margin-top: -10px;
   }
+  #show {
+    margin-top: 10px;
+  }
+  #show .info {
+    margin-left: 0;
+  }
   footer {
     position: static;
     height: 41px;
@@ -614,4 +673,7 @@ you can use the generic selector below, but it's slower:
 }
 .clearfix:after {
   clear: both;
+}
+.pull-up {
+  margin-top: -10px;
 }
