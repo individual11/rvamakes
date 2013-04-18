@@ -25,6 +25,6 @@ var AppHeaderView = Backbone.View.extend({
         this.$el.find(".current").html(title);
     },
     reset: function () {
-        window.location.hash = "";
+        window.location.hash = "#/filter/"
     }
 });

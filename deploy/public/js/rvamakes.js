@@ -63,7 +63,7 @@ var AppHeaderView = Backbone.View.extend({
         this.$el.find(".current").html(title);
     },
     reset: function () {
-        window.location.hash = "";
+        window.location.hash = "#/filter/"
     }
 });
 
@@ -146,6 +146,33 @@ var ListItemView = Backbone.View.extend({
     },
     mouseOut:function(){
         console.log("mouseOut");
+    }
+});
+
+/* **********************************************
+     Begin AboutView.js
+********************************************** */
+
+var AboutView = Backbone.View.extend({
+    el: '#about',
+    template: Mustache.compile($('#tmplAbout').html()),
+    initialize: function(){
+        this.render();
+    },
+    render:function(){
+        this.$el.html(this.template());
+    }
+});
+
+/* **********************************************
+     Begin ShowView.js
+********************************************** */
+
+var ShowView = Backbone.View.extend({
+    el: "#show",
+    template: Mustache.compile($("#tmplShowItem").html()),
+    renderCreative:function(json){
+        this.$el.html(this.template(json));
     }
 });
 
@@ -248,84 +275,6 @@ var EntryView = Backbone.View.extend({
 });
 
 /* **********************************************
-     Begin AppRouter.js
-********************************************** */
-
-var AppRouter = Backbone.Router.extend({
-    routes:{
-        "list":"list",
-        "about": "about",
-        "entry": "entry",
-        "show/:id": "show",
-        "random": "random",
-        "filter/(:tag)": "filter",
-        '*path':  'defaultRoute'
-    },
-    hideSections: function () {
-        $('section').hide();
-        window.scrollTo(0,1);
-    },
-    defaultRoute:function(){
-        this.list();
-    },
-
-    list: function () {
-        this.hideSections();
-        $('#list').show();
-
-    },
-    about: function () {
-        this.hideSections();
-        $('#about').show();
-    },
-    entry: function () {
-        this.hideSections();
-        $('#entry').show();
-    },
-    show: function (data) {
-        $('body').trigger('creative:show', data);
-        this.hideSections();
-        $('#show').show();
-    },
-    random: function () {
-        $('body').trigger('creative:random');
-    },
-    filter:function (tag){
-        if(!tag) tag = "";
-        this.hideSections();
-        $('body').trigger('filter:change',tag);
-        $('#list').show();
-    }
-});
-
-/* **********************************************
-     Begin AboutView.js
-********************************************** */
-
-var AboutView = Backbone.View.extend({
-    el: '#about',
-    template: Mustache.compile($('#tmplAbout').html()),
-    initialize: function(){
-        this.render();
-    },
-    render:function(){
-        this.$el.html(this.template());
-    }
-});
-
-/* **********************************************
-     Begin ShowView.js
-********************************************** */
-
-var ShowView = Backbone.View.extend({
-    el: "#show",
-    template: Mustache.compile($("#tmplShowItem").html()),
-    renderCreative:function(json){
-        this.$el.html(this.template(json));
-    }
-});
-
-/* **********************************************
      Begin AppView.js
 ********************************************** */
 
@@ -384,6 +333,57 @@ var AppView = Backbone.View.extend({
             this.views.list.filterByTag(data);
             this.views.header.setSelected(data);
         }
+    }
+});
+
+/* **********************************************
+     Begin AppRouter.js
+********************************************** */
+
+var AppRouter = Backbone.Router.extend({
+    routes:{
+        "list":"list",
+        "about": "about",
+        "entry": "entry",
+        "show/:id": "show",
+        "random": "random",
+        "filter/(:tag)": "filter",
+        '*path':  'defaultRoute'
+    },
+    hideSections: function () {
+        $('section').hide();
+        window.scrollTo(0,1);
+    },
+    defaultRoute:function(){
+        this.list();
+    },
+
+    list: function () {
+        this.hideSections();
+        $('#list').show();
+
+    },
+    about: function () {
+        this.hideSections();
+        $('#about').show();
+    },
+    entry: function () {
+        this.hideSections();
+        $('#entry').show();
+    },
+    show: function (data) {
+        $('body').trigger('creative:show', data);
+        this.hideSections();
+        $('#show').show();
+    },
+    random: function () {
+        $('body').trigger('creative:random');
+    },
+    filter:function (tag){
+        if(!tag) tag = "";
+        this.hideSections();
+        $('body').trigger('filter:change',tag);
+        $('#list').show();
     }
 });
 
