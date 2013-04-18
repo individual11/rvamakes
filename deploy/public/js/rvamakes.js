@@ -362,36 +362,44 @@ var AppRouter = Backbone.Router.extend({
         "filter/(:tag)": "filter",
         '*path':  'defaultRoute'
     },
+
     hideSections: function () {
         $('section').hide();
         window.scrollTo(0,1);
     },
     defaultRoute:function(){
+        tracker.trackView();
         this.list();
     },
 
     list: function () {
+        tracker.trackView();
         this.hideSections();
         $('#list').show();
 
     },
     about: function () {
+        tracker.trackView();
         this.hideSections();
         $('#about').show();
     },
     entry: function () {
+        tracker.trackView();
         this.hideSections();
         $('#entry').show();
     },
     show: function (data) {
+        tracker.trackView();
         $('body').trigger('creative:show', data);
         this.hideSections();
         $('#show').show();
     },
     random: function () {
+        tracker.trackView();
         $('body').trigger('creative:random');
     },
     filter:function (tag){
+        tracker.trackView();
         if(!tag) tag = "";
         this.hideSections();
         $('body').trigger('filter:change',tag);
@@ -403,6 +411,11 @@ var AppRouter = Backbone.Router.extend({
      Begin app.js
 ********************************************** */
 
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-40190168-1']);
+// TODO: change to rvamakes.com
+_gaq.push(['_setDomainName', 'rvamakes.nodejitsu.com']);
+var tracker = new GoogleAnalyticsView();
 var app = new AppView();
 
 
