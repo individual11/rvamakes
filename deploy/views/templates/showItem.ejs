@@ -1,11 +1,25 @@
 <script type="text/html" id="tmplShowItem">
-    <p>RVAMAKER</p>
+    
+    <div class="item-content">
+	    <div class="avatar"><img src="{{img}}" alt="{{name}}"/></div>
+	    <!-- <h2>RVAMAKER</h2> -->
+	    <div class="info">
+	    	<h2>{{name}}</h2>
+	    	<div class="url"><strong><a href="{{url}}" target="_blank">{{url}}</a></strong></div>
+	    
+		    {{! since we don't name the elements in the tags array, you have to use "." in it's place}}
+		    <ul class="tags">
+		    {{#tags}}
+		    <li>
+		    	<a class="{{.}}" href="#/filter/{{.}}">{{.}}</a>
+		    </li>
+		    {{/tags}}
+		    </ul>
+		</div>
+   </div>
 
-    <p><img src="{{img}}" alt="{{name}}"/></p>
-
-    <p>{{name}}</p>
-
-    <p><a href="{{url}}" target="_blank">{{url}}</a></p>
-
-    <p>{{#tags}}{{tags.join(",")}}{{/tags}}</p>
+    
+    
+    
+    <!-- <p>{{#tags}}{{tags.join(",")}}{{/tags}}</p> -->
 </script>
