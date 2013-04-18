@@ -6,22 +6,23 @@
             <input type="hidden" name="_csrf" value="<%= csrftoken %>">
             <div class="field">
                 <label for="form_name">Name</label>
-                <input type="text" name="name" id="form_name">
+                <input type="text" name="name" id="form_name" placeholder="First Last">
                 <div class="errors"></div>
             </div>
             <div class="field">
                 <label for="form_email">Email</label>
-                <input type="email" name="email" id="form_email">
+                <input type="email" name="email" id="form_email" placeholder="your@email.here">
                 <div class="errors"></div>
             </div>
             <div class="field">
                 <label for="form_url">URL</label>
-                <input type="text" name="url" id="form_url">
+                <input type="text" name="url" id="form_url" placeholder="http://mysite.com">
                 <div class="errors"></div>
             </div>
             <div class="field">
                 <label for="form_img">Image</label>
                 <input type="file" name="img" id="form_img">
+                <div class="errors"></div>
             </div>
             <div class="field">
                 <label>Tags</label>

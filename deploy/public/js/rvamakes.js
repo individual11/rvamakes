@@ -204,10 +204,18 @@ var EntryView = Backbone.View.extend({
         }
     },
     validateForm: function (data) {
-        var validEmail = /[A-Z0-9._+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/i;
-        var validUrl = /^(http[s]?:\/\/){1,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+        // validators
+        var validEmail = /[A-Z0-9._+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/i,
+            validUrl = /^(http[s]?:\/\/){1,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/,
+            validExt = /png|jpg|jpeg/;
 
+        // retrieve file upload info
+        var fileName = $('#form_img').val(),
+            fileExt = fileName.substring(fileName.lastIndexOf('.')+1);
+
+        // error list
         var errors = [];
+
         if (data.name.length == 0) {
             errors.push({field: 'name', msg: 'Name is a required field'})
         }
@@ -227,6 +235,10 @@ var EntryView = Backbone.View.extend({
                 errors.push({field: 'tags', msg: 'The number of selected tags cannot exceed 3'})
             }
         }
+        if (!validExt.test(fileExt)){
+            errors.push({field: 'img', msg: 'Please choose an image <small>(format: png or jpg)</small>'});
+        }
+
         return errors;
     },
     showErrors: function (errors) {
