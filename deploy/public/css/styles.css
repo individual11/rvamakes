@@ -84,13 +84,13 @@ header .inner .selector .current.musician {
   color: #ffcc33;
 }
 header .inner .selector .current.filmmaker {
-  color: #cccccc;
+  color: #99ff99;
 }
 header .inner .selector .current.cook {
-  color: #cccccc;
+  color: #3333ff;
 }
 header .inner .selector .current.technologist {
-  color: #cccccc;
+  color: #cc99ff;
 }
 header .inner .selector .fob {
   font-size: 60px;
@@ -164,13 +164,13 @@ header .inner .options div.musician:hover {
   background: #ffcc33;
 }
 header .inner .options div.filmmaker:hover {
-  background: #cccccc;
+  background: #99ff99;
 }
 header .inner .options div.cook:hover {
-  background: #cccccc;
+  background: #3333ff;
 }
 header .inner .options div.technologist:hover {
-  background: #cccccc;
+  background: #cc99ff;
 }
 header .inner .options div.selected {
   background: #fff;
@@ -486,24 +486,24 @@ section {
   color: #fff;
 }
 #show ul li a.filmmaker {
-  background: #a6a6a6;
+  background: #4dff4d;
 }
 #show ul li a.filmmaker:hover {
-  background: #cccccc;
+  background: #99ff99;
   color: #fff;
 }
 #show ul li a.cook {
-  background: #a6a6a6;
+  background: #0000e5;
 }
 #show ul li a.cook:hover {
-  background: #cccccc;
+  background: #3333ff;
   color: #fff;
 }
 #show ul li a.technologist {
-  background: #a6a6a6;
+  background: #a64dff;
 }
 #show ul li a.technologist:hover {
-  background: #cccccc;
+  background: #cc99ff;
   color: #fff;
 }
 #show img {
