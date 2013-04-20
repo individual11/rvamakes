@@ -79,17 +79,11 @@ var AppHeaderView = Backbone.View.extend({
 
 var AppFooterView = Backbone.View.extend({
     el: "footer",
-    events:{
-	  "click .inner div a": "sectionChange"
-    },
     initialize:function(){
 
     },
     render:function(){
 
-    },
-    sectionChange:function(){
-	    $('.options').hide();
     }
     
 });
@@ -305,6 +299,7 @@ var AppRouter = Backbone.Router.extend({
 
     hideSections: function () {
         $('section').hide();
+        $('.options').hide();
         window.scrollTo(0,1);
     },
     defaultRoute:function(){
