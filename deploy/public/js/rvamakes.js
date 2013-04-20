@@ -59,8 +59,14 @@ var AppHeaderView = Backbone.View.extend({
     },
     setSelected:function(filter){
         this.$el.find(".options .selected").removeClass("selected");
-        var title = this.$el.find(".options [data-filter="+filter+"]").addClass("selected").html();
-        this.$el.find(".current").html(title);
+        var title = this.$el.find(".options [data-filter="+filter+"]").addClass("selected").html(),
+        	titleID = title.substr(0, title.length - 1).toLowerCase(),
+        	$current = this.$el.find(".current");
+        	
+        if($current.data('current-state')){
+	        $current.removeClass($current.data('current-state'));
+        }
+        $current.addClass(titleID).data('current-state', titleID).html(title);
     },
     reset: function () {
         window.location.hash = "#/filter/"
@@ -146,33 +152,6 @@ var ListItemView = Backbone.View.extend({
     },
     mouseOut:function(){
         console.log("mouseOut");
-    }
-});
-
-/* **********************************************
-     Begin AboutView.js
-********************************************** */
-
-var AboutView = Backbone.View.extend({
-    el: '#about',
-    template: Mustache.compile($('#tmplAbout').html()),
-    initialize: function(){
-        this.render();
-    },
-    render:function(){
-        this.$el.html(this.template());
-    }
-});
-
-/* **********************************************
-     Begin ShowView.js
-********************************************** */
-
-var ShowView = Backbone.View.extend({
-    el: "#show",
-    template: Mustache.compile($("#tmplShowItem").html()),
-    renderCreative:function(json){
-        this.$el.html(this.template(json));
     }
 });
 
@@ -287,64 +266,18 @@ var EntryView = Backbone.View.extend({
 });
 
 /* **********************************************
-     Begin AppView.js
+     Begin GoogleAnalyticsView.js
 ********************************************** */
 
-var AppView = Backbone.View.extend({
-    el: "body",
-    initialize: function () {
-        this.router = new AppRouter();
-        this.collections.creatives = new Creatives();
-        this.collections.creatives.fetch({
-            success: function () {
-                Backbone.history.start();
-            }
-        });
-        this.views.header = new AppHeaderView({});
-        this.views.footer = new AppFooterView({});
-        this.views.list = new ListView({collection: this.collections.creatives});
-        this.views.show = new ShowView({});
-        this.views.about = new AboutView({});
-        this.views.entry = new EntryView({});
-
-
-
+var GoogleAnalyticsView = Backbone.View.extend({
+    el:'#tracker',
+    trackEvent:function(category, label, action, value){
+        console.log('bc.trackevent', category, label, action, value);
+        //_gaq.push(['_trackEvent', category, label, action, value];
     },
-    render: function () {
-
-    },
-    events: {
-        "creative:created": "creative:created",
-        "creative:show": "creative:show",
-        "creative:random": "creative:random",
-        "filter:change": "filter:change"
-    },
-    collections: {},
-    views: {},
-    "creative:created": function (e, model) {
-        if (model instanceof Creative) {
-            this.collections.creatives.add(model);
-            this.router.navigate("#/show/" + model.get("_id"), true);
-        }
-    },
-    "creative:show": function (e, data) {
-        console.log('creative:show', data);
-        var model = this.collections.creatives.findWhere({_id: data});
-        this.views.show.renderCreative(model.toJSON());
-    },
-    "creative:random": function () {
-        this.router.navigate("#/show/" + this.collections.creatives.randomId(), true);
-    },
-    "filter:change": function (e, data) {
-        console.log('filter:change',data);
-        if (data == "") {
-            this.router.navigate("#/", false);
-            this.views.list.clearFilter();
-            this.views.header.setSelected(data);
-        } else {
-            this.views.list.filterByTag(data);
-            this.views.header.setSelected(data);
-        }
+    trackView:function(){
+        console.log('bc.trackview', location.pathname + location.search + location.hash);
+       // _gaq.push(['_trackPageview', location.pathname + location.search + location.hash]);
     }
 });
 
@@ -403,6 +336,95 @@ var AppRouter = Backbone.Router.extend({
         this.hideSections();
         $('body').trigger('filter:change',tag);
         $('#list').show();
+    }
+});
+
+/* **********************************************
+     Begin AboutView.js
+********************************************** */
+
+var AboutView = Backbone.View.extend({
+    el: '#about',
+    template: Mustache.compile($('#tmplAbout').html()),
+    initialize: function(){
+        this.render();
+    },
+    render:function(){
+        this.$el.html(this.template());
+    }
+});
+
+/* **********************************************
+     Begin ShowView.js
+********************************************** */
+
+var ShowView = Backbone.View.extend({
+    el: "#show",
+    template: Mustache.compile($("#tmplShowItem").html()),
+    renderCreative:function(json){
+        this.$el.html(this.template(json));
+    }
+});
+
+/* **********************************************
+     Begin AppView.js
+********************************************** */
+
+var AppView = Backbone.View.extend({
+    el: "body",
+    initialize: function () {
+        this.router = new AppRouter();
+        this.collections.creatives = new Creatives();
+        this.collections.creatives.fetch({
+            success: function () {
+                Backbone.history.start();
+            }
+        });
+        this.views.header = new AppHeaderView({});
+        this.views.footer = new AppFooterView({});
+        this.views.list = new ListView({collection: this.collections.creatives});
+        this.views.show = new ShowView({});
+        this.views.about = new AboutView({});
+        this.views.entry = new EntryView({});
+
+
+
+    },
+    render: function () {
+
+    },
+    events: {
+        "creative:created": "creative:created",
+        "creative:show": "creative:show",
+        "creative:random": "creative:random",
+        "filter:change": "filter:change"
+    },
+    collections: {},
+    views: {},
+    "creative:created": function (e, model) {
+        if (model instanceof Creative) {
+            this.collections.creatives.add(model);
+            this.router.navigate("#/show/" + model.get("_id"), true);
+        }
+    },
+    "creative:show": function (e, data) {
+        console.log('creative:show', data);
+        var model = this.collections.creatives.findWhere({_id: data});
+        this.views.show.renderCreative(model.toJSON());
+    },
+    "creative:random": function () {
+        this.router.navigate("#/show/" + this.collections.creatives.randomId(), true);
+    },
+    "filter:change": function (e, data) {
+        console.log('filter:change',data);
+        if (data == "") {
+            this.router.navigate("#/", false);
+            this.views.list.clearFilter();
+            this.views.header.setSelected(data);
+        } else {
+            this.views.list.filterByTag(data);
+            this.views.header.setSelected(data);
+        }
     }
 });
 

@@ -1,3 +1,8 @@
+/*
+@purple: #c16ee8;
+@turquoise: #6cf8fc;
+@orange: #ee5731;
+*/
 html,
 body {
   height: 100%;
@@ -10,13 +15,13 @@ body {
 }
 a {
   text-decoration: none;
-  color: #ee5731;
+  color: #ff1d25;
 }
 a:hover {
-  color: #f27d60;
+  color: #ff5056;
 }
 a:visited {
-  color: #93270c;
+  color: #b60006;
 }
 header .inner,
 footer .inner {
@@ -54,6 +59,39 @@ header .inner .selector .current {
   margin-top: -2px;
   font-size: 84px;
 }
+header .inner .selector .current.developer {
+  color: #3fa9f5;
+}
+header .inner .selector .current.writer {
+  color: #ff931e;
+}
+header .inner .selector .current.photographer {
+  color: #663399;
+}
+header .inner .selector .current.illustrator {
+  color: #7ac943;
+}
+header .inner .selector .current.crafter {
+  color: #ff1d25;
+}
+header .inner .selector .current.designer {
+  color: #ff7bac;
+}
+header .inner .selector .current.mographer {
+  color: #bdccd4;
+}
+header .inner .selector .current.musician {
+  color: #ffcc33;
+}
+header .inner .selector .current.filmmaker {
+  color: #cccccc;
+}
+header .inner .selector .current.cook {
+  color: #cccccc;
+}
+header .inner .selector .current.technologist {
+  color: #cccccc;
+}
 header .inner .selector .fob {
   font-size: 60px;
   width: 60px;
@@ -70,7 +108,7 @@ header .inner .selector .fob span {
   transition: all 0.3s ease-in-out;
 }
 header .inner .selector .fob span:hover {
-  color: #6cf8fc;
+  color: #3fa9f5;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -98,11 +136,44 @@ header .inner .options div {
   cursor: pointer;
 }
 header .inner .options div:hover {
-  background: #6cf8fc;
+  background: #fff;
   color: #000;
 }
+header .inner .options div.developer:hover {
+  background: #3fa9f5;
+}
+header .inner .options div.writer:hover {
+  background: #ff931e;
+}
+header .inner .options div.photographer:hover {
+  background: #663399;
+}
+header .inner .options div.illustrator:hover {
+  background: #7ac943;
+}
+header .inner .options div.crafter:hover {
+  background: #ff1d25;
+}
+header .inner .options div.designer:hover {
+  background: #ff7bac;
+}
+header .inner .options div.mographer:hover {
+  background: #bdccd4;
+}
+header .inner .options div.musician:hover {
+  background: #ffcc33;
+}
+header .inner .options div.filmmaker:hover {
+  background: #cccccc;
+}
+header .inner .options div.cook:hover {
+  background: #cccccc;
+}
+header .inner .options div.technologist:hover {
+  background: #cccccc;
+}
 header .inner .options div.selected {
-  background: #c16ee8;
+  background: #fff;
   color: #000;
 }
 header .inner .options div.selected:hover {
@@ -228,19 +299,19 @@ section {
 }
 #about ul.contributors li.spade:before {
   content: "\2660 \0020";
-  color: #ee5731;
+  color: #ff1d25;
 }
 #about ul.contributors li.club:before {
   content: "\2663 \0020";
-  color: #ee5731;
+  color: #ff1d25;
 }
 #about ul.contributors li.heart:before {
   content: "\2665 \0020";
-  color: #ee5731;
+  color: #ff1d25;
 }
 #about ul.contributors li.diamond:before {
   content: "\2666 \0020";
-  color: #ee5731;
+  color: #ff1d25;
 }
 #entry > p {
   margin-left: 10px;
@@ -273,13 +344,13 @@ section {
 #entry form div.field input[type="text"].error,
 #entry form div.field input[type="email"].error,
 #entry form div.field input[type="url"].error {
-  border: 1px solid #ee5731;
+  border: 1px solid #ff931e;
 }
 #entry form div.field .errors {
   width: 100%;
 }
 #entry form div.field .errors p {
-  background-color: #ee5731;
+  background-color: #ff931e;
   color: #fff;
   font-size: 15px;
   font-weight: bold;
@@ -298,7 +369,7 @@ section {
   width: 140px;
 }
 #entry form div.checkboxes fieldset.error {
-  border: 1px solid #ee5731;
+  border: 1px solid #ff931e;
 }
 #entry form div.ctrls {
   padding-top: 30px;
@@ -345,30 +416,94 @@ section {
   float: left;
   padding: 3px 6px;
   margin-right: 4px;
+  margin-bottom: 10px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
   color: #fff;
-  background: #f49178;
+  background: #d00007;
 }
 #show ul li a:hover {
-  background: #ee5731;
-  color: #fff;
-}
-#show ul li a.illustrator {
-  background: #ddb0f2;
-}
-#show ul li a.illustrator:hover {
-  background: #c16ee8;
+  background: #ff1d25;
   color: #fff;
 }
 #show ul li a.developer {
-  background: #b7fcfe;
+  background: #0b85dc;
 }
 #show ul li a.developer:hover {
-  background: #6cf8fc;
+  background: #3fa9f5;
+  color: #fff;
+}
+#show ul li a.writer {
+  background: #d16c00;
+}
+#show ul li a.writer:hover {
+  background: #ff931e;
+  color: #fff;
+}
+#show ul li a.photographer {
+  background: #402060;
+}
+#show ul li a.photographer:hover {
+  background: #663399;
+  color: #fff;
+}
+#show ul li a.illustrator {
+  background: #56952b;
+}
+#show ul li a.illustrator:hover {
+  background: #7ac943;
+  color: #fff;
+}
+#show ul li a.crafter {
+  background: #d00007;
+}
+#show ul li a.crafter:hover {
+  background: #ff1d25;
+  color: #fff;
+}
+#show ul li a.designer {
+  background: #ff2f7c;
+}
+#show ul li a.designer:hover {
+  background: #ff7bac;
+  color: #fff;
+}
+#show ul li a.mographer {
+  background: #8fa8b6;
+}
+#show ul li a.mographer:hover {
+  background: #bdccd4;
+  color: #fff;
+}
+#show ul li a.musician {
+  background: #e5ac00;
+}
+#show ul li a.musician:hover {
+  background: #ffcc33;
+  color: #fff;
+}
+#show ul li a.filmmaker {
+  background: #a6a6a6;
+}
+#show ul li a.filmmaker:hover {
+  background: #cccccc;
+  color: #fff;
+}
+#show ul li a.cook {
+  background: #a6a6a6;
+}
+#show ul li a.cook:hover {
+  background: #cccccc;
+  color: #fff;
+}
+#show ul li a.technologist {
+  background: #a6a6a6;
+}
+#show ul li a.technologist:hover {
+  background: #cccccc;
   color: #fff;
 }
 #show img {
