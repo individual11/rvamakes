@@ -37,16 +37,20 @@ var AppView = Backbone.View.extend({
     },
     "creative:show": function (e, data) {
         console.log('creative:show', data);
-        var model = this.collections.creatives.findWhere({_id: data});
-        this.views.show.renderCreative(model.toJSON());
+        if (data == "") {
+            this.router.navigate("#/", {trigger:true, replace:true});
+        }else{
+       		var model = this.collections.creatives.findWhere({_id: data});
+       		this.views.show.renderCreative(model.toJSON());
+       	}
     },
     "creative:random": function () {
-        this.router.navigate("#/show/" + this.collections.creatives.randomId(), true);
+        this.router.navigate("#/show/" + this.collections.creatives.randomId(), {trigger:true, replace:false});
     },
     "filter:change": function (e, data) {
         console.log('filter:change',data);
         if (data == "") {
-            this.router.navigate("#/", false);
+            this.router.navigate("#/", {trigger:true, replace:true});
             this.views.list.clearFilter();
             this.views.header.setSelected(data);
         } else {

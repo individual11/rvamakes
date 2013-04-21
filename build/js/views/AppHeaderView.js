@@ -31,6 +31,6 @@ var AppHeaderView = Backbone.View.extend({
         $current.addClass(titleID).data('current-state', titleID).html(title);
     },
     reset: function () {
-        window.location.hash = "#/filter/"
+    	window.location.replace("#/filter/")
     }
 });
