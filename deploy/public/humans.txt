@@ -6,6 +6,7 @@
     Fletch Padgett -- Lead -- @flatanimals
     David Vogeleer -- Dev / CT -- @individual11
     Jeff McDonald  -- CT, planter of seeds -- @welovejeff
+    Kevin Power    -- Dev --  kpow.com
 
 # THANKS
 
