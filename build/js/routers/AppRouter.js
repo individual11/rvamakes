@@ -41,10 +41,6 @@ var AppRouter = Backbone.Router.extend({
         this.hideSections();
         $('#show').show();
     },
-    random: function () {
-        tracker.trackView();
-        $('body').trigger('creative:random');
-    },
     filter:function (tag){
         tracker.trackView();
         if(!tag) tag = "";

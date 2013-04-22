@@ -1,10 +1,12 @@
 var AppFooterView = Backbone.View.extend({
     el: "footer",
-    initialize:function(){
-
+    events:{
+        "click .random": "raiseRandom"
     },
-    render:function(){
-
+    raiseRandom: function (e) {
+        e.preventDefault();
+        tracker.trackEvent('Navigation','Random','Click');
+        $('body').trigger('creative:random');
     }
     
 });
