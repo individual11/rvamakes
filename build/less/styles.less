@@ -65,6 +65,40 @@ header {
                 float: left;
                 margin-top: -2px;
                 font-size: 84px;
+                &.developer{
+	                color: @developerColor;
+                }
+                &.writer{
+	                color: @writerColor;
+                }
+                &.photographer{
+	                color: @photographerColor;
+                }
+                &.illustrator{
+	                color: @illustratorColor;
+                }
+                &.crafter{
+	                color: @crafterColor;
+                }
+                &.designer{
+	                color: @designerColor;
+                }
+                &.mographer{
+	                color: @mographerColor;
+                }
+                &.musician{
+	                color: @musicianColor;
+                }
+                &.filmmaker{
+	                color: @filmmakerColor;
+                }
+                &.cook{
+	                color: @cookColor;
+                }
+                &.technologist{
+	                color: @technologistColor;
+                }
+                
             }
 
             .fob {
@@ -76,10 +110,11 @@ header {
                     font-size: 45px;
                     color: #efefef;
                     .make-transition(@fadeOutTime);
-                    &:hover {
-                        color: @turquoise;
-                        .make-transition();
-                    }
+	                   	 &:hover {
+	                        color: @blue;
+	                        .make-transition();
+	                    }
+	
                 }
                 margin-right: 10px;
             }
@@ -107,12 +142,46 @@ header {
                 cursor: pointer;
 
                 &:hover {
-                    background: @turquoise;
+                    background: #fff;
                     color: #000;
+                }
+                
+                &.developer:hover{
+	                background: @developerColor;
+                }
+                &.writer:hover{
+	                background: @writerColor;
+                }
+                &.photographer:hover{
+	                background: @photographerColor;
+                }
+                &.illustrator:hover{
+	                background: @illustratorColor;
+                }
+                &.crafter:hover{
+	                background: @crafterColor;
+                }
+                &.designer:hover{
+	                background: @designerColor;
+                }
+                &.mographer:hover{
+	                background: @mographerColor;
+                }
+                &.musician:hover{
+	                background: @musicianColor;
+                }
+                &.filmmaker:hover{
+	                background: @filmmakerColor;
+                }
+                &.cook:hover{
+	                background: @cookColor;
+                }
+                &.technologist:hover{
+	                background: @technologistColor;
                 }
 
                 &.selected {
-                    background: @purple;
+                    background: #fff;
                     color: #000;
                     &:hover {
                         cursor: default;
@@ -354,16 +423,45 @@ section {
 	            float: left;
 	            padding: 3px 6px;
 	            margin-right: 4px;
+	            margin-bottom: 10px;
 	            .rounded-corners;
 	            color: #fff;
 	            .tagSetup;
 	            
-	            &.illustrator{
-		            .tagSetup(@illustratorColor);
-	            }
 	            &.developer{
-		            .tagSetup(@developerColor);
-	            }
+	                .tagSetup(@developerColor);
+                }
+                &.writer{
+	                .tagSetup(@writerColor);
+                }
+                &.photographer{
+	                .tagSetup(@photographerColor);
+                }
+                &.illustrator{
+	                .tagSetup(@illustratorColor);
+                }
+                &.crafter{
+	                .tagSetup(@crafterColor);
+                }
+                &.designer{
+	                .tagSetup(@designerColor);
+                }
+                &.mographer{
+	                .tagSetup(@mographerColor);
+                }
+                &.musician{
+	                .tagSetup(@musicianColor);
+                }
+                &.filmmaker{
+	                .tagSetup(@filmmakerColor);
+                }
+                &.cook{
+	                .tagSetup(@cookColor);
+                }
+                &.technologist{
+	                .tagSetup(@technologistColor);
+                }
+	            
 	        }
         }
 	}
