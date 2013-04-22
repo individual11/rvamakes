@@ -58,39 +58,42 @@ header .inner .selector .current {
   float: left;
   margin-top: -2px;
   font-size: 84px;
-}
-header .inner .selector .current.developer {
-  color: #3fa9f5;
-}
-header .inner .selector .current.writer {
-  color: #ff931e;
-}
-header .inner .selector .current.photographer {
-  color: #663399;
-}
-header .inner .selector .current.illustrator {
-  color: #7ac943;
-}
-header .inner .selector .current.crafter {
-  color: #ff1d25;
-}
-header .inner .selector .current.designer {
-  color: #ff7bac;
-}
-header .inner .selector .current.mographer {
-  color: #bdccd4;
-}
-header .inner .selector .current.musician {
-  color: #ffcc33;
-}
-header .inner .selector .current.filmmaker {
-  color: #99ff99;
-}
-header .inner .selector .current.cook {
-  color: #3333ff;
-}
-header .inner .selector .current.technologist {
-  color: #cc99ff;
+  /*
+                &.developer{
+	                color: @developerColor;
+                }
+                &.writer{
+	                color: @writerColor;
+                }
+                &.photographer{
+	                color: @photographerColor;
+                }
+                &.illustrator{
+	                color: @illustratorColor;
+                }
+                &.crafter{
+	                color: @crafterColor;
+                }
+                &.designer{
+	                color: @designerColor;
+                }
+                &.mographer{
+	                color: @mographerColor;
+                }
+                &.musician{
+	                color: @musicianColor;
+                }
+                &.filmmaker{
+	                color: @filmmakerColor;
+                }
+                &.cook{
+	                color: @cookColor;
+                }
+                &.technologist{
+	                color: @technologistColor;
+                }
+                */
+
 }
 header .inner .selector .fob {
   font-size: 60px;
@@ -173,8 +176,7 @@ header .inner .options div.technologist:hover {
   background: #cc99ff;
 }
 header .inner .options div.selected {
-  background: #fff;
-  color: #000;
+  color: #333;
 }
 header .inner .options div.selected:hover {
   cursor: default;
