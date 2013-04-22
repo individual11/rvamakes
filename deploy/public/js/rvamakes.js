@@ -207,7 +207,11 @@ var EntryView = Backbone.View.extend({
         console.log(data, errors);
         if (errors.length > 0) {
             e.preventDefault();
+            tracker.trackEvent("Entry Form","Submit","Error Count",errors.length );
             this.showErrors(errors);
+        }
+        else{
+            tracker.trackEvent("Entry Form","Submit","Valid");
         }
     },
     validateForm: function (data) {
@@ -284,6 +288,7 @@ var EntryView = Backbone.View.extend({
 
             var creative = new Creative(res);
 
+            tracker.trackEvent("Entry Form","Submit","Success");
             $(this).trigger("creative:created", creative);
             $(this).trigger('form:reset');
         }
