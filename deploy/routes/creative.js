@@ -1,15 +1,22 @@
+// twitter jams
 var Twitter = require('node-twitter'),
 	twitterConfig = require('../config/twitter.js'),
 	twitter = new Twitter.RestClient(twitterConfig.consumerKey, twitterConfig.consumerSecret, twitterConfig.token, twitterConfig.tokenSecret);
 
+ // other requirementzs
 var AWS = require('aws-sdk'),
     mongoose = require('mongoose'),
-    fs = require('fs');
-var Creative = mongoose.model('Creative');
+    fs = require('fs'),
+    Creative = mongoose.model('Creative');
 
-var queryFields = "name img url tags";
+// configs
+var queryFields = "name img url tags",
+    twitterStarters = ["Added ", "Just added ", "New "];
+
+// load AWS config
 AWS.config.loadFromPath('./config/aws.json');
 
+// GET /
 exports.index = function (req, res) {
     Creative.find(
         queryFields,
@@ -18,6 +25,7 @@ exports.index = function (req, res) {
         });
 };
 
+//  GET /:id
 exports.show = function (req, res) {
     var id = req.params['id'];
     console.log(id);
@@ -26,6 +34,7 @@ exports.show = function (req, res) {
     });
 };
 
+// POST /
 exports.create = function (req, res, next) {
     var img = req.files.img;
     var filePathSegs = img.path.split('/');
@@ -62,19 +71,15 @@ exports.create = function (req, res, next) {
                         if (err) return next(err);
                         
                         //tweet about it
-                        var twitterStarters = ["Added ", "Just added ", "New "];
                         var tweet = twitterStarters[Math.floor(Math.random() * twitterStarters.length)];//pick random beginning to feel more natural
-                        
                         tweet += creative.tags.join("/");
                         tweet += " " + creative.name;
-                        tweet += " http://rvamakes.jit.su/#/show/" + String(creative._id);
+                        tweet += " http://rvamakes.com/#/show/" + String(creative._id);
                         
                         //send tweet if in appropriate env
                         if (process.env.NODE_ENV == 'production') postToTwitter(tweet);
                         
-                        console.log(tweet + ":: WAS " + ((process.env.NODE_ENV == 'production')? "SENT":"NOT SENT (re: not in production)"));
-                        
-                        res.set('Content-Type', 'text/plain');
+                        res.set('Content-Type', 'text/plain'); // old IE hack... sad =(
                         res.send(creative);
                     });
                 }
@@ -83,16 +88,10 @@ exports.create = function (req, res, next) {
     });
 };
 
+// DELETE /:id
 exports.delete = function (req, res, next) {
     var id = req.params['id'];
     Creative.findByIdAndRemove(id, function (err) {
-        if (err) res.status(500);
-        res.status(200)
-    });
-}
-
-exports.reset = function (req, res, next) {
-    Creative.remove(function (err) {
         if (err) res.status(500);
         res.status(200)
     });
