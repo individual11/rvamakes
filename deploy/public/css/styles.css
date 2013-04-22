@@ -139,6 +139,7 @@ header .inner .options div {
 }
 header .inner .options div:hover {
   background: rgba(255, 255, 255, 0.3);
+  color: #000;
 }
 header .inner .options div.developer:hover {
   background: #3fa9f5;
