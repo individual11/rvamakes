@@ -124,7 +124,6 @@ header .inner .options {
   top: 140px;
   display: none;
   width: 750px;
-  background-color: #fff;
   background-color: rgba(0, 0, 0, 0.9);
   padding-bottom: 10px;
 }
@@ -139,8 +138,7 @@ header .inner .options div {
   cursor: pointer;
 }
 header .inner .options div:hover {
-  background: #fff;
-  color: #000;
+  background: rgba(255, 255, 255, 0.3);
 }
 header .inner .options div.developer:hover {
   background: #3fa9f5;
@@ -176,10 +174,12 @@ header .inner .options div.technologist:hover {
   background: #cc99ff;
 }
 header .inner .options div.selected {
+  background-color: transparent;
   color: #333;
 }
 header .inner .options div.selected:hover {
   cursor: default;
+  background-color: transparent;
 }
 section {
   display: none;
