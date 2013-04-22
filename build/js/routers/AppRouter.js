@@ -21,6 +21,7 @@ var AppRouter = Backbone.Router.extend({
     list: function () {
         tracker.trackView();
         this.hideSections();
+        $('body').trigger('filter:clear');
         $('#list').show();
 
     },
