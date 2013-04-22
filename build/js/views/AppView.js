@@ -37,7 +37,6 @@ var AppView = Backbone.View.extend({
         }
     },
     "creative:show": function (e, data) {
-        console.log('creative:show', data);
         if (data == "") {
             this.router.navigate("#/", {trigger:true, replace:true});
         }else{
@@ -52,7 +51,6 @@ var AppView = Backbone.View.extend({
         this.views.list.clearFilter();
     },
     "filter:change": function (e, data) {
-        console.log('filter:change',data);
         if (data == "") {
             this.router.navigate("#/", {trigger:true, replace:true});
             this.views.list.clearFilter();

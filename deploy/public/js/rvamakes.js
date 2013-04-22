@@ -132,27 +132,18 @@ var ListItemView = Backbone.View.extend({
     template: Mustache.compile($("#tmplListItem").html()),
     events:{
         "click": "click",
-        "tap": "click",
-        "mouseOver": "mouseOver",
-        "mouseOut": "mouseOut"
+        "tap": "click"
     },
     initialize:function(){
         this.render();
     },
     render:function(){
-        //console.log("list item render", this.model.toJSON());
         var klasses = "item " + this.model.get("tags").join(" ");
         this.$el.addClass(klasses).html(this.template(this.model.toJSON()));
     },
     click:function(e){
         var path = this.$el.find('a').attr('href');
         window.location.hash = path;
-    },
-    mouseOver:function(){
-        console.log("mouseOver");
-    },
-    mouseOut:function(){
-        console.log("mouseOut");
     }
 });
 
@@ -204,7 +195,6 @@ var EntryView = Backbone.View.extend({
     processEntry: function (e) {
         var data = this.$el.find('form').serializeObject();
         var errors = this.validateForm(data);
-        console.log(data, errors);
         if (errors.length > 0) {
             e.preventDefault();
             tracker.trackEvent("Entry Form","Submit","Error Count",errors.length );
@@ -253,7 +243,6 @@ var EntryView = Backbone.View.extend({
         return errors;
     },
     showErrors: function (errors) {
-        console.log(errors);
         var $form = this.$el.find('form');
         $form.find('.error').removeClass('error');
         $form.find('.errors').empty();
@@ -305,11 +294,9 @@ var EntryView = Backbone.View.extend({
 var GoogleAnalyticsView = Backbone.View.extend({
     el:'#tracker',
     trackEvent:function(category, label, action, value){
-        console.log('tracker.trackevent', category, label, action, value);
         //_gaq.push(['_trackEvent', category, label, action, value];
     },
     trackView:function(){
-        console.log('tracker.trackview', location.pathname + location.search + location.hash);
        // _gaq.push(['_trackPageview', location.pathname + location.search + location.hash]);
     }
 });
@@ -357,7 +344,6 @@ var AppView = Backbone.View.extend({
         }
     },
     "creative:show": function (e, data) {
-        console.log('creative:show', data);
         if (data == "") {
             this.router.navigate("#/", {trigger:true, replace:true});
         }else{
@@ -372,7 +358,6 @@ var AppView = Backbone.View.extend({
         this.views.list.clearFilter();
     },
     "filter:change": function (e, data) {
-        console.log('filter:change',data);
         if (data == "") {
             this.router.navigate("#/", {trigger:true, replace:true});
             this.views.list.clearFilter();

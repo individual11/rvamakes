@@ -52,7 +52,8 @@ app.get('/api/creatives', creative.index);
 app.get('/api/creatives/:id', creative.show);
 app.post('/api/creatives', creative.create);
 app.delete('/api/creatives/:id', creative.delete);
-app.delete('/api/creatives/reset', creative.reset);
+// REMOVED FOR PRODUCTION
+// app.delete('/api/creatives/reset', creative.reset);
 
 // Root
 app.get('/', routes.index);

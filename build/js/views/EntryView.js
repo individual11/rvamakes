@@ -15,7 +15,6 @@ var EntryView = Backbone.View.extend({
     processEntry: function (e) {
         var data = this.$el.find('form').serializeObject();
         var errors = this.validateForm(data);
-        console.log(data, errors);
         if (errors.length > 0) {
             e.preventDefault();
             tracker.trackEvent("Entry Form","Submit","Error Count",errors.length );
@@ -64,7 +63,6 @@ var EntryView = Backbone.View.extend({
         return errors;
     },
     showErrors: function (errors) {
-        console.log(errors);
         var $form = this.$el.find('form');
         $form.find('.error').removeClass('error');
         $form.find('.errors').empty();
