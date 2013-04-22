@@ -59,11 +59,17 @@ var AppHeaderView = Backbone.View.extend({
     },
     setSelected:function(filter){
         this.$el.find(".options .selected").removeClass("selected");
-        var title = this.$el.find(".options [data-filter="+filter+"]").addClass("selected").html();
-        this.$el.find(".current").html(title);
+        var title = this.$el.find(".options [data-filter="+filter+"]").addClass("selected").html(),
+        	titleID = title.substr(0, title.length - 1).toLowerCase(),
+        	$current = this.$el.find(".current");
+        	
+        if($current.data('current-state')){
+	        $current.removeClass($current.data('current-state'));
+        }
+        $current.addClass(titleID).data('current-state', titleID).html(title);
     },
     reset: function () {
-        window.location.hash = "#/filter/"
+    	window.location.replace("#/filter/")
     }
 });
 
@@ -79,6 +85,7 @@ var AppFooterView = Backbone.View.extend({
     render:function(){
 
     }
+    
 });
 
 /* **********************************************
@@ -146,33 +153,6 @@ var ListItemView = Backbone.View.extend({
     },
     mouseOut:function(){
         console.log("mouseOut");
-    }
-});
-
-/* **********************************************
-     Begin AboutView.js
-********************************************** */
-
-var AboutView = Backbone.View.extend({
-    el: '#about',
-    template: Mustache.compile($('#tmplAbout').html()),
-    initialize: function(){
-        this.render();
-    },
-    render:function(){
-        this.$el.html(this.template());
-    }
-});
-
-/* **********************************************
-     Begin ShowView.js
-********************************************** */
-
-var ShowView = Backbone.View.extend({
-    el: "#show",
-    template: Mustache.compile($("#tmplShowItem").html()),
-    renderCreative:function(json){
-        this.$el.html(this.template(json));
     }
 });
 
@@ -287,6 +267,108 @@ var EntryView = Backbone.View.extend({
 });
 
 /* **********************************************
+     Begin GoogleAnalyticsView.js
+********************************************** */
+
+var GoogleAnalyticsView = Backbone.View.extend({
+    el:'#tracker',
+    trackEvent:function(category, label, action, value){
+        console.log('bc.trackevent', category, label, action, value);
+        //_gaq.push(['_trackEvent', category, label, action, value];
+    },
+    trackView:function(){
+        console.log('bc.trackview', location.pathname + location.search + location.hash);
+       // _gaq.push(['_trackPageview', location.pathname + location.search + location.hash]);
+    }
+});
+
+/* **********************************************
+     Begin AppRouter.js
+********************************************** */
+
+var AppRouter = Backbone.Router.extend({
+    routes:{
+        "list":"list",
+        "about": "about",
+        "entry": "entry",
+        "show/:id": "show",
+        "random": "random",
+        "filter/(:tag)": "filter",
+        '*path':  'defaultRoute'
+    },
+
+    hideSections: function () {
+        $('section').hide();
+        $('.options').hide();
+        window.scrollTo(0,1);
+    },
+    defaultRoute:function(){
+        this.list();
+    },
+
+    list: function () {
+        tracker.trackView();
+        this.hideSections();
+        $('#list').show();
+
+    },
+    about: function () {
+        tracker.trackView();
+        this.hideSections();
+        $('#about').show();
+    },
+    entry: function () {
+        tracker.trackView();
+        this.hideSections();
+        $('#entry').show();
+    },
+    show: function (data) {
+        tracker.trackView();
+        $('body').trigger('creative:show', data);
+        this.hideSections();
+        $('#show').show();
+    },
+    random: function () {
+        tracker.trackView();
+        $('body').trigger('creative:random');
+    },
+    filter:function (tag){
+        tracker.trackView();
+        if(!tag) tag = "";
+        this.hideSections();
+        $('body').trigger('filter:change',tag);
+        $('#list').show();
+    }
+});
+
+/* **********************************************
+     Begin AboutView.js
+********************************************** */
+
+var AboutView = Backbone.View.extend({
+    el: '#about',
+    template: Mustache.compile($('#tmplAbout').html()),
+    initialize: function(){
+        this.render();
+    },
+    render:function(){
+        this.$el.html(this.template());
+    }
+});
+
+/* **********************************************
+     Begin ShowView.js
+********************************************** */
+
+var ShowView = Backbone.View.extend({
+    el: "#show",
+    template: Mustache.compile($("#tmplShowItem").html()),
+    renderCreative:function(json){
+        this.$el.html(this.template(json));
+    }
+});
+
+/* **********************************************
      Begin AppView.js
 ********************************************** */
 
@@ -329,80 +411,26 @@ var AppView = Backbone.View.extend({
     },
     "creative:show": function (e, data) {
         console.log('creative:show', data);
-        var model = this.collections.creatives.findWhere({_id: data});
-        this.views.show.renderCreative(model.toJSON());
+        if (data == "") {
+            this.router.navigate("#/", {trigger:true, replace:true});
+        }else{
+       		var model = this.collections.creatives.findWhere({_id: data});
+       		this.views.show.renderCreative(model.toJSON());
+       	}
     },
     "creative:random": function () {
-        this.router.navigate("#/show/" + this.collections.creatives.randomId(), true);
+        this.router.navigate("#/show/" + this.collections.creatives.randomId(), {trigger:true, replace:false});
     },
     "filter:change": function (e, data) {
         console.log('filter:change',data);
         if (data == "") {
-            this.router.navigate("#/", false);
+            this.router.navigate("#/", {trigger:true, replace:true});
             this.views.list.clearFilter();
             this.views.header.setSelected(data);
         } else {
             this.views.list.filterByTag(data);
             this.views.header.setSelected(data);
         }
-    }
-});
-
-/* **********************************************
-     Begin AppRouter.js
-********************************************** */
-
-var AppRouter = Backbone.Router.extend({
-    routes:{
-        "list":"list",
-        "about": "about",
-        "entry": "entry",
-        "show/:id": "show",
-        "random": "random",
-        "filter/(:tag)": "filter",
-        '*path':  'defaultRoute'
-    },
-
-    hideSections: function () {
-        $('section').hide();
-        window.scrollTo(0,1);
-    },
-    defaultRoute:function(){
-        this.list();
-    },
-
-    list: function () {
-        tracker.trackView();
-        this.hideSections();
-        $('#list').show();
-
-    },
-    about: function () {
-        tracker.trackView();
-        this.hideSections();
-        $('#about').show();
-    },
-    entry: function () {
-        tracker.trackView();
-        this.hideSections();
-        $('#entry').show();
-    },
-    show: function (data) {
-        tracker.trackView();
-        $('body').trigger('creative:show', data);
-        this.hideSections();
-        $('#show').show();
-    },
-    random: function () {
-        tracker.trackView();
-        $('body').trigger('creative:random');
-    },
-    filter:function (tag){
-        tracker.trackView();
-        if(!tag) tag = "";
-        this.hideSections();
-        $('body').trigger('filter:change',tag);
-        $('#list').show();
     }
 });
 

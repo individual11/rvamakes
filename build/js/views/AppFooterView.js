@@ -6,4 +6,5 @@ var AppFooterView = Backbone.View.extend({
     render:function(){
 
     }
+    
 });
